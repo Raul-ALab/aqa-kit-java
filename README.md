@@ -1,3 +1,3 @@
 ## AutoQA with Java
 
-- [Lesson 1](./src/main/java/org/raul/lesson_1)
+- [Lesson 1 : testcases.xlsx](./src/test/resources)
