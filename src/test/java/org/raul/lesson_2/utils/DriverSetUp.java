@@ -1,4 +1,4 @@
-package org.raul.lesson_2.tests;
+package org.raul.lesson_2.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
