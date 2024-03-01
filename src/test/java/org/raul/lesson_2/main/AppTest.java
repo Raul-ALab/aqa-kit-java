@@ -1,16 +1,35 @@
 package org.raul.lesson_2.main;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.raul.lesson_2.scripts.ElementComparison;
-import org.raul.lesson_2.scripts.PageInteractions;
+import org.raul.lesson_2.testcases.LoginFlow;
+import org.raul.lesson_2.testcases.RegistrationFlow;
 import org.raul.lesson_2.utils.DriverSetUp;
 
 public class AppTest {
     public static void main(String[] args) {
         WebDriver driver = DriverSetUp.setUpDriver();
         String url = "http://www.automationpractice.pl/index.php";
+
+        String urlRegister = "https://qa-course-01.andersenlab.com/registration";
+        RegistrationFlow registrationFlow = new RegistrationFlow();
+        registrationFlow.setName("Alina");
+        registrationFlow.setSurname("Park");
+        registrationFlow.setEmail("apark@example.com");
+        registrationFlow.setBirthdate("02/09/1999");
+        registrationFlow.setPassword("a.park123");
+        registrationFlow.setConfirmPassword("a.park123");
+
+//        registrationFlow.registrationPasswordMismatch(driver, urlRegister);
+//        registrationFlow.registrationEmailFormat(driver, urlRegister);
+//        registrationFlow.registrationSuccess(driver, urlRegister);
+
+
+        String urlLogin = "https://qa-course-01.andersenlab.com/login";
+        LoginFlow loginFlow = new LoginFlow();
+        loginFlow.setEmail("mboone@example.com");
+        loginFlow.setPassword("boone123");
+
+        loginFlow.loginSuccess(driver, urlLogin);
 
 
 /*
