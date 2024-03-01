@@ -26,6 +26,7 @@ import java.time.Duration;
 public class LoginFlow {
     private String email;
     private String password;
+    private String wrongPassword;
 
     public void loginSuccess(WebDriver driver, String url) {
         driver.get(url);
@@ -33,5 +34,34 @@ public class LoginFlow {
         driver.findElement(By.name("email")).sendKeys(getEmail());
         driver.findElement(By.name("password")).sendKeys(getPassword());
         driver.findElement(By.xpath("//button[@type='submit']")).click();
+    }
+
+    public void backButtonAfterLogout(WebDriver driver, String url) {
+        driver.get(url);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+
+        driver.findElement(By.name("email")).sendKeys(getEmail());
+        driver.findElement(By.name("password")).sendKeys(getPassword());
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(By
+                .xpath("//p[text()='Logout']"))).click();
+        driver.findElement(By.xpath("//button[@style='background: red;' "
+                + "and @label='Yes']")).click();
+
+        driver.navigate().back();
+    }
+
+    public String invalidLoginCredentials(WebDriver driver, String url) {
+        driver.get(url);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+
+        driver.findElement(By.name("email")).sendKeys(getEmail());
+        driver.findElement(By.name("password")).sendKeys(getWrongPassword());
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+        String error = wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                .xpath("//span[text()='Email or password is not valid']"))).getText();
+        return error;
     }
 }
