@@ -4,13 +4,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.raul.lesson_2.scripts.ElementComparison;
+import org.raul.lesson_2.scripts.PageInteractions;
 import org.raul.lesson_2.utils.DriverSetUp;
 
 public class AppTest {
     public static void main(String[] args) {
-
         WebDriver driver = DriverSetUp.setUpDriver();
         String url = "http://www.automationpractice.pl/index.php";
+
+
+/*
+        PageInteractions page = new PageInteractions();
+        page.webAutoPractice(driver, url);
+*/
+
+/*
         driver.get(url);
 
         WebElement elementA = driver.findElement(By.className("blockbestsellers"));
@@ -18,7 +26,7 @@ public class AppTest {
 
         ElementComparison location = new ElementComparison();
         location.compareElements(elementA, elementB);
-
+*/
 
 /*        String url1 = "http://www.automationpractice.pl/index.php";
         String url2 = "https://zoo.waw.pl/";
