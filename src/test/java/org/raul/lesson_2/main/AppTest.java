@@ -1,13 +1,26 @@
 package org.raul.lesson_2.main;
 
-import org.raul.lesson_2.scripts.WindowHandler;
-
-import java.util.Map;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.raul.lesson_2.scripts.ElementComparison;
+import org.raul.lesson_2.utils.DriverSetUp;
 
 public class AppTest {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
-        String url1 = "http://www.automationpractice.pl/index.php";
+        WebDriver driver = DriverSetUp.setUpDriver();
+        String url = "http://www.automationpractice.pl/index.php";
+        driver.get(url);
+
+        WebElement elementA = driver.findElement(By.className("blockbestsellers"));
+        WebElement elementB = driver.findElement(By.className("login"));
+
+        ElementComparison location = new ElementComparison();
+        location.compareElements(elementA, elementB);
+
+
+/*        String url1 = "http://www.automationpractice.pl/index.php";
         String url2 = "https://zoo.waw.pl/";
         String url3 = "https://www.w3schools.com/";
         String url4 = "https://www.clickspeedtester.com/click-counter/";
@@ -24,19 +37,7 @@ public class AppTest {
             System.out.println("Title: " + entry.getValue() + ", URL: " + entry.getKey());
         }
 
-        windows.closeSpecificWindow("Zoo");
-//        windows.quitDrivers();
+        windows.closeSpecificWindow("Zoo");*/
 
-
-        /*        WebDriver driver = DriverSetUp.setUpDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://qa-course-01.andersenlab.com/login");
-        System.out.println(driver.getCurrentUrl() + " title " + driver.getTitle());
-        driver.findElement(By.name("email")).sendKeys("raul");
-        driver.findElement(By.name("password")).sendKeys("12345678");
-        driver.findElement(By.xpath("//button[@class='mt-7 h-10 bg-[#feda00] rounded-3xl w-full opacity-60']")).click();
-        driver.findElement(By.xpath("//button[text()='Sign in']")).click();
-        Thread.sleep(4000);
-        driver.quit();*/
     }
 }
