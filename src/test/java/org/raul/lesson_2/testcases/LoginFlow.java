@@ -19,8 +19,6 @@ import java.time.Duration;
  * я разделил 6 методов между двумя модулями, для которых я написал
  * тест-кейсы.
  * */
-
-
 @Getter(AccessLevel.PRIVATE)
 @Setter
 public class LoginFlow {
@@ -28,6 +26,7 @@ public class LoginFlow {
     private String password;
     private String wrongPassword;
 
+    // Test Case ID : L09
     public void loginSuccess(WebDriver driver, String url) {
         driver.get(url);
 
@@ -36,6 +35,7 @@ public class LoginFlow {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 
+    // Test Case ID : L010
     public void backButtonAfterLogout(WebDriver driver, String url) {
         driver.get(url);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
@@ -52,6 +52,7 @@ public class LoginFlow {
         driver.navigate().back();
     }
 
+    // Test Case ID : L013
     public String invalidLoginCredentials(WebDriver driver, String url) {
         driver.get(url);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));

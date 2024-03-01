@@ -30,6 +30,7 @@ public class RegistrationFlow {
     private String password;
     private String confirmPassword;
 
+    // Test Case ID : L01
     public void registrationPasswordMismatch(WebDriver driver, String url) {
         driver.get(url);
 
@@ -45,6 +46,7 @@ public class RegistrationFlow {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 
+    // Test Case ID : L06
     public void registrationEmailFormat(WebDriver driver, String url) {
         driver.get(url);
 
@@ -60,6 +62,7 @@ public class RegistrationFlow {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 
+    // Test Case ID : L08
     public void registrationSuccess(WebDriver driver, String url) {
         driver.get(url);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
@@ -79,7 +82,6 @@ public class RegistrationFlow {
                 .xpath("//p[text()='Logout']"))).click();
         driver.findElement(By.xpath("//button[@style='background: red;' "
                 + "and @label='Yes']")).click();
-
 
         /* Wait for Sign In page and sign back with new credentials for
         double-checking the account*/
