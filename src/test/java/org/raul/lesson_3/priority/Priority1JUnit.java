@@ -8,6 +8,16 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
+/*
+ * Рауль: Поскольку в требованиях к задаче было указано предоставить
+ * 'как минимум' два решения для данной задачи, я добавил еще
+ * один отдельный класс, чтобы предоставить третье дополнительное
+ * решение с помощью JUnit.
+ * Не смог придумать, как лучше предоставить решения как для JUnit,
+ * так и для TestNG в одном классе, чтобы избежать проблем с читаемостью,
+ * поэтому решил использовать дополнительный отдельный класс.
+ * */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Priority1JUnit {
 
