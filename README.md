@@ -1,5 +1,6 @@
 ## AutoQA with Java
 
+
 [xml resources : for branch `lssn#03`](https://github.com/Raul-ALab/aqa-kit-java/blob/lssn%2303/src/test/resources)
 
 - [Lesson_3](https://github.com/Raul-ALab/aqa-kit-java/tree/lssn%2303/src/test/java/org/raul/lesson_3)
