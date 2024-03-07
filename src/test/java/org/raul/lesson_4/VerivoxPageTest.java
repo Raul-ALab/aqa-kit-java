@@ -7,6 +7,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+/*
+ * 1. Напишите 2 тест кейса на проверку каких либо визуальных элементов сайта
+ * https://andersenlab.com/. (Например отображение кнопок Skype, WatsApp или
+ * на переход на страницу проекта Verivox. А лучше придумайте что-нибудь свое)).
+ * */
 public class VerivoxPageTest {
     private WebDriver driver;
     private VerivoxPage verivoxPage;
