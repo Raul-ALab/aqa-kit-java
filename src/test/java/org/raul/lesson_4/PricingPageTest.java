@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class TestPricingPage {
+public class PricingPageTest {
     private WebDriver driver;
     private PricingPage pricingPage;
 
@@ -28,6 +28,7 @@ public class TestPricingPage {
 
         Assert.assertTrue(pricingPage.isCostEstimationPageUrl(), "URL mismatch!");
     }
+
 
     @Test
     public void verifyGetPricingButtonLoadsEstimationPage() {

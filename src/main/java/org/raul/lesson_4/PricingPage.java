@@ -13,29 +13,27 @@ public class PricingPage {
 
     public PricingPage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     public boolean isCostEstimationPageUrl() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.urlContains("pricing"));
-
         return driver.getCurrentUrl().equals("https://andersenlab.com/pricing");
     }
 
     public String checkCostEstimationPageHeader() {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.titleContains("Cost"));
-
         By headerLocator = By.xpath("//section[@id='calculator']/div"
                 + "/h2[@class='Title-module--title--e41b8 "
                 + "Title-module--h2--ff335 Title-module--black--54d0b']");
 
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headerLocator));
         return driver.findElement(headerLocator).getText();
     }
 
     public void clickPricingButton() {
         By pricingBtnLocator = By.xpath("//a[contains(@class, 'Button-module--button--094fe')]");
 
+        wait.until(ExpectedConditions.elementToBeClickable(pricingBtnLocator));
         driver.findElement(pricingBtnLocator).click();
     }
 }
