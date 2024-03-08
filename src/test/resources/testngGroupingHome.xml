@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OddEven Suite">
+    <test name="OddEvenMethods">
+        <groups>
+            <run>
+                <include name="first"/>
+                <include name="second"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="org.raul.lesson_3.grouping.Groups"/>
+        </classes>
+    </test>
+</suite>
