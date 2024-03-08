@@ -1,6 +1,7 @@
 package org.raul.lesson_4;
 
 import org.openqa.selenium.WebDriver;
+import org.raul.lesson_4.pageobjs.tests.PricingPage;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

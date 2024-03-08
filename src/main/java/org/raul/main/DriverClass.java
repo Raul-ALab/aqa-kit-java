@@ -1,8 +1,8 @@
 package org.raul.main;
 
 import org.openqa.selenium.WebDriver;
-import org.raul.lesson_4.PageOperations;
-import org.raul.lesson_4.PricingPage;
+import org.raul.lesson_4.pagehandler.PageOperations;
+import org.raul.lesson_4.pagehandler.W3FormFiller;
 import org.raul.utils.DriverSetUp;
 
 public class DriverClass {
@@ -10,6 +10,8 @@ public class DriverClass {
         WebDriver driver = DriverSetUp.setUpChromeDriver();
 
         PageOperations pageOpts = new PageOperations(driver);
+        W3FormFiller w3Form = new W3FormFiller();
+
 
         String searchUrl1 = "https://www.guinnessworldrecords.com/account/register?";
         String searchUrl2 = "https://www.hyrtutorials.com/p/alertsdemo.html";
@@ -17,8 +19,11 @@ public class DriverClass {
 
 
         driver.get("https://www.google.com/search");
+        pageOpts.searchGuinnessByUrl(searchUrl1);
+        pageOpts.searchHyrByUrl(searchUrl2);
+        pageOpts.searchW3ByUrl(searchUrl3);
 
-        pageOpts.searchExecutor(searchUrl1, searchUrl2, searchUrl3);
+        w3Form.fillInForm(driver, "Raul", "Gurbanli");
 
     }
 

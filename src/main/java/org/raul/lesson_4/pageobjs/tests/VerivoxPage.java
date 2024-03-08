@@ -1,4 +1,4 @@
-package org.raul.lesson_4;
+package org.raul.lesson_4.pageobjs.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
