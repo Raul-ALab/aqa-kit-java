@@ -85,12 +85,9 @@ public class PageOperationsTest {
     private void hyrAlertHandler() {
         String outputTexts = hyrAlert.fillInForm();
         System.out.println(outputTexts);
-        Assert.assertTrue(outputTexts.contains("alert popup"),
-                "HYR Alerts: Alert btn text didn't match!");
-        Assert.assertTrue(outputTexts.contains("pressed Cancel"),
-                "HYR Alerts: Confirm btn text didn't match!\"");
-        Assert.assertTrue(outputTexts.contains("Final step of this task"),
-                "HYR Alerts: Prompt btn text didn't match!");
+        Assert.assertTrue(outputTexts.contains("alert popup"), "HYR Alerts: Alert btn text didn't match!");
+        Assert.assertTrue(outputTexts.contains("pressed Cancel"), "HYR Alerts: Confirm btn text didn't match!");
+        Assert.assertTrue(outputTexts.contains("Final step of this task"), "HYR Alerts: Prompt btn text didn't match!");
     }
 
     @AfterClass
