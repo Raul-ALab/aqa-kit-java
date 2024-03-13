@@ -36,7 +36,6 @@ public class HyrFormFiller {
     /* После нажатия на первую кнопку нажать “Ok” на модальном окне и
     вывести в консоль сообщение в модуле “Popup box output”.*/
     public String clickAlertBtn() {
-        switchToAlertsPage();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyLocator));
         wait.until(ExpectedConditions.elementToBeClickable(alertBtnLocator)).click();
 
@@ -82,7 +81,7 @@ public class HyrFormFiller {
                 .build().perform();
     }
 
-    private void switchToAlertsPage() {
+    public void switchToAlertsPage() {
         SwitchTab.switchBetweenTabs(driver, "AlertsDemo");
     }
 }

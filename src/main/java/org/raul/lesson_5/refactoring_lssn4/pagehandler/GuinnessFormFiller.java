@@ -44,7 +44,6 @@ public class GuinnessFormFiller {
     }
 
     public void inputName(String name) {
-        switchToGuinnessPage();
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyLocator));
         driver.findElement(fnameLocator).sendKeys(name);
     }
@@ -73,22 +72,20 @@ public class GuinnessFormFiller {
         driver.findElement(yearLocator).sendKeys(String.valueOf(year));
     }
 
-    public String inputRegion(String countryName) {
+    public void inputRegion(String countryName) {
         Select countryDropdown = new Select(driver.findElement(countryLocator));
         countryDropdown.selectByVisibleText(countryName);
 
         wait.until(ExpectedConditions.textToBePresentInElementLocated(countryLocator, countryName));
-        String countryCode = driver.findElement(countryLocator).getAttribute("value");
-
-        return countryCode;
     }
 
     public void inputState(String state) {
         driver.findElement(stateLocator).sendKeys(state);
     }
 
-    public void inputPassword(String password) {
+    public String inputPassword(String password) {
         driver.findElement(passwordLocator).sendKeys(password);
+        return driver.findElement(passwordLocator).getAttribute("value");
     }
 
     public String inputConfirmPassword(String repeatPassword) {
@@ -105,7 +102,7 @@ public class GuinnessFormFiller {
         return driver.findElement(errorLocator).getText();
     }
 
-    private void switchToGuinnessPage() {
+    public void switchToGuinnessPage() {
         SwitchTab.switchBetweenTabs(driver, "Guinness");
     }
 }

@@ -36,7 +36,6 @@ public class W3FormFiller {
     }
 
     public void inputName() {
-        switchToW3SchoolPage();
         WebElement iframe = driver.findElement(frameLocator);
         driver.switchTo().frame(iframe);
 
@@ -60,7 +59,7 @@ public class W3FormFiller {
         return driver.findElement(noteLocator).getText();
     }
 
-    private void switchToW3SchoolPage() {
+    public void switchToW3SchoolPage() {
         SwitchTab.switchBetweenTabs(driver, "W3Schools");
     }
 }
