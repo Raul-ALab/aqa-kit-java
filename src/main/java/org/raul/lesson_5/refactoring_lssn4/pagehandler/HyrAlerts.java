@@ -17,7 +17,7 @@ import java.time.Duration;
  *  https://www.hyrtutorials.com/p/alertsdemo.html
  * Нажать поочередно на кнопки.
  * */
-public class HyrFormFiller {
+public class HyrAlerts {
     private WebDriver driver;
     private WebDriverWait wait;
     private Alert alert;
@@ -28,7 +28,7 @@ public class HyrFormFiller {
     private By promptBtnLocator = By.id("promptBox");
     private By bodyLocator = By.xpath("//body");
 
-    public HyrFormFiller(WebDriver driver) {
+    public HyrAlerts(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
