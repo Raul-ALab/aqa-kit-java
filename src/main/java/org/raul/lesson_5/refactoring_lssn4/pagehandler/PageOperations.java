@@ -11,19 +11,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 /*
-* Refactoring:
-* 2. Необходимо автоматизировать сценарий, который показан на видео
-* Сценарий для автоматизации Лекция 12.mp4 :
-*   1)Для этого открыть поиск гугл: https://www.google.com/search
-*   2) После ввести в поисковую строку следующую ссылку:
-*   https://www.guinnessworldrecords.com/account/register?
-* Открыть подходящую ссылку в новом окне, которая будет отображаться в результатах.
-*   3) После ввести в поисковую строку следующую ссылку:
-*   https://www.hyrtutorials.com/p/alertsdemo.html
-* Открыть подходящую ссылку в новом окне, которая будет отображаться в результатах.
-*   4) Открыть в активном окне следующую ссылку:
-*   https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit
-* */
+ * Refactoring:
+ * 2. Необходимо автоматизировать сценарий, который показан на видео
+ * Сценарий для автоматизации Лекция 12.mp4 :
+ *   1)Для этого открыть поиск гугл: https://www.google.com/search
+ *   2) После ввести в поисковую строку следующую ссылку:
+ *   https://www.guinnessworldrecords.com/account/register?
+ * Открыть подходящую ссылку в новом окне, которая будет отображаться в результатах.
+ *   3) После ввести в поисковую строку следующую ссылку:
+ *   https://www.hyrtutorials.com/p/alertsdemo.html
+ * Открыть подходящую ссылку в новом окне, которая будет отображаться в результатах.
+ *   4) Открыть в активном окне следующую ссылку:
+ *   https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit
+ * */
 public class PageOperations {
     private WebDriver driver;
     private Actions actions;
