@@ -15,34 +15,40 @@ import java.time.Duration;
  * После вывести в консоль текст данного элемента -> Note
  * */
 public class W3FormFiller {
-    By fnameLocator = By.xpath("//*[@id='fname']");
-    By lnameLocator = By.xpath("//*[@id='lname']");
-    By submitLocator = By.xpath("/html/body/form/input[3]");
-    By frameLocator = By.xpath("//iframe[@id='iframeResult']");
-    By noteLocator = By.xpath("//div[@class='w3-panel w3-pale-yellow w3-leftbar w3-border-yellow']/p");
     private WebDriver driver;
     private WebDriverWait wait;
 
+    private By fnameLocator = By.xpath("//*[@id='fname']");
+    private By lnameLocator = By.xpath("//*[@id='lname']");
+    private By submitLocator = By.xpath("/html/body/form/input[3]");
+    private By frameLocator = By.xpath("//iframe[@id='iframeResult']");
+    private By noteLocator = By.xpath("//div[@class='w3-panel w3-pale-yellow w3-leftbar w3-border-yellow']/p");
 
-    public W3FormFiller(WebDriver driver) {
+    private String fName;
+    private String lName;
+
+    public W3FormFiller(WebDriver driver, String fName, String lName) {
         this.driver = driver;
+        this.fName = fName;
+        this.lName = lName;
+
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
-    public void inputName(String name) {
+    public void inputName() {
         switchToW3SchoolPage();
         WebElement iframe = driver.findElement(frameLocator);
         driver.switchTo().frame(iframe);
 
         WebElement nameElement = driver.findElement(fnameLocator);
         nameElement.clear();
-        nameElement.sendKeys(name);
+        nameElement.sendKeys(this.fName);
     }
 
-    public void inputLastName(String lName) {
+    public void inputLastName() {
         WebElement lastName = driver.findElement(lnameLocator);
         lastName.clear();
-        lastName.sendKeys(lName);
+        lastName.sendKeys(this.lName);
     }
 
     public void clickSubmit() {

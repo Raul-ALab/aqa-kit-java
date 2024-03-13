@@ -19,37 +19,50 @@ public class PageRegistration {
     private By passwordLocator = By.xpath("//input[@name='password']");
     private By confirmPassLocator = By.xpath("//input[@name='passwordConfirmation']");
 
+    private String name;
+    private String lName;
+    private String birthdate;
+    private String email;
+    private String password;
+    private String confirmPassword;
 
-    public PageRegistration(WebDriver driver) {
+    public PageRegistration(WebDriver driver, String name, String lName,
+                            String mmddyyyyBirthdate, String email, String password, String confirmPassword) {
         this.driver = driver;
+        this.name = name;
+        this.lName = lName;
+        this.birthdate = mmddyyyyBirthdate;
+        this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
     }
 
     public String signUpHeader() {
         return driver.findElement(headerLocator).getText();
     }
 
-    public void inputName(String name) {
-        driver.findElement(fNameLocator).sendKeys(name);
+    public void inputName() {
+        driver.findElement(fNameLocator).sendKeys(this.name);
     }
 
-    public void inputLastName(String lName) {
-        driver.findElement(lNameLocator).sendKeys(lName);
+    public void inputLastName() {
+        driver.findElement(lNameLocator).sendKeys(this.lName);
     }
 
-    public void inputBirthday(String mmddyyyy) {
-        driver.findElement(birthdayLocator).sendKeys(mmddyyyy);
+    public void inputBirthday() {
+        driver.findElement(birthdayLocator).sendKeys(this.birthdate);
     }
 
-    public void inputEmail(String email) {
-        driver.findElement(emailLocator).sendKeys(email);
+    public void inputEmail() {
+        driver.findElement(emailLocator).sendKeys(this.email);
     }
 
-    public void inputPassword(String password) {
-        driver.findElement(passwordLocator).sendKeys(password);
+    public void inputPassword() {
+        driver.findElement(passwordLocator).sendKeys(this.password);
     }
 
-    public String inputConfirmPassword(String repeatPassword) {
-        driver.findElement(confirmPassLocator).sendKeys(repeatPassword);
+    public String inputConfirmPassword() {
+        driver.findElement(confirmPassLocator).sendKeys(confirmPassword);
         return driver.findElement(confirmPassLocator).getAttribute("value");
     }
 }

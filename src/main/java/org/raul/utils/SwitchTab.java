@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SwitchTab {
-    private static WebDriver driver;
 
     public static void switchBetweenTabs(WebDriver driver, String titleKeyword) {
         List<String> windowHandles = new ArrayList(driver.getWindowHandles());

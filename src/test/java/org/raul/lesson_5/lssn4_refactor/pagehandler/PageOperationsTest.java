@@ -37,7 +37,7 @@ public class PageOperationsTest {
         driver = DriverSetUp.setUpChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         pageOpt = new PageOperations(driver);
-        w3Form = new W3FormFiller(driver);
+        w3Form = new W3FormFiller(driver, "Raul", "Gurbanli");
         guinnessForm = new GuinnessFormFiller(driver);
         hyrAlert = new HyrFormFiller(driver);
     }

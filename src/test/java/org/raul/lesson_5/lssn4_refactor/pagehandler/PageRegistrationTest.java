@@ -24,7 +24,8 @@ public class PageRegistrationTest {
     @BeforeMethod
     public void setUp() {
         driver = DriverSetUp.setUpChromeDriver();
-        pageRegistration = new PageRegistration(driver);
+        pageRegistration = new PageRegistration(driver, "Alina", "Park", "03/23/2000",
+                "apark@example.com", "a.park123", "a.park123");
         driver.get(URL);
     }
 
@@ -38,12 +39,12 @@ public class PageRegistrationTest {
     @Test
     public void verifyRegistrationPageInputFields() {
         String verifySignUpPage = pageRegistration.signUpHeader();
-        pageRegistration.inputName("Alina");
-        pageRegistration.inputLastName("Park");
-        pageRegistration.inputEmail("apark@example.com");
-        pageRegistration.inputBirthday("03/23/2000");
-        pageRegistration.inputPassword("a.park123");
-        String confirmPasswordValue = pageRegistration.inputConfirmPassword("a.park123");
+        pageRegistration.inputName();
+        pageRegistration.inputLastName();
+        pageRegistration.inputEmail();
+        pageRegistration.inputBirthday();
+        pageRegistration.inputPassword();
+        String confirmPasswordValue = pageRegistration.inputConfirmPassword();
 
         String expectedFormHeader = "Registration";
         String expectedPassword = "a.park123";
