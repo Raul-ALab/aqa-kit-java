@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 /*
+ * Refactoring:
+ * This method is to execute all tests for scenario 2 : W3Schools, Guinness, and HyrAlerts.
  * 2. Необходимо автоматизировать сценарий, который показан на видео "Сценарий
  * для автоматизации Лекция 12.mp4".
  * */
