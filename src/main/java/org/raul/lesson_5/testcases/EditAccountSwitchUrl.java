@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,9 +24,6 @@ public class EditAccountSwitchUrl {
     private WebElement submitElement;
     @FindBy(xpath = "//div//a[text()='Edit account']")
     private WebElement editElement;
-    @FindBy(xpath = "//input[@name='email']")
-    private WebElement emailValueElement;
-
 
     public EditAccountSwitchUrl(WebDriver driver) {
         this.driver = driver;

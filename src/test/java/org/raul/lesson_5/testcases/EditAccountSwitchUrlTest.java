@@ -30,16 +30,17 @@ public class EditAccountSwitchUrlTest {
 
     @Test(dataProvider = "loginData")
     public void verifyEditBtnSwitchesPage(String username, String password) {
-        urlSwitch.login(username, password);
-        boolean actualUrl = urlSwitch.clickEditAccount();
+        boolean loginStatus = urlSwitch.login(username, password);
+        Assert.assertTrue(loginStatus, "Unsuccessful login attempt!");
 
+        boolean actualUrl = urlSwitch.clickEditAccount();
         Assert.assertTrue(actualUrl, "editAccount button fails to change URL to edit page!");
     }
 
     @DataProvider(name = "loginData")
     public Object[][] existingData() {
         return new Object[][]{
-                {"rashad.tgr@gmail.com", "ratest123"}
+                {"mboone10@example.com", "mbmb.123456"}
         };
     }
 }

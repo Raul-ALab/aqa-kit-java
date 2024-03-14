@@ -16,7 +16,6 @@ public class UsernameDuplication {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By headerLocator = By.xpath("//h1[@class='text-2xl']");
     private By fNameLocator = By.xpath("//input[@name='firstName']");
     private By lNameLocator = By.xpath("//input[@name='lastName']");
     private By birthdayLocator = By.xpath("//input[@name='dateOfBirth']");
@@ -24,15 +23,11 @@ public class UsernameDuplication {
     private By passwordLocator = By.xpath("//input[@name='password']");
     private By confirmPassLocator = By.xpath("//input[@name='passwordConfirmation']");
     private By submitLocator = By.xpath("//button[@type='submit']");
-    private By editLocator = By.xpath("//div//a[contains(text(), 'Edit')]/following-sibling::p[text()='Logout']");
+
 
     public UsernameDuplication(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
-    }
-
-    public String signUpHeader() {
-        return driver.findElement(headerLocator).getText();
     }
 
     public void inputName(String fName) {
