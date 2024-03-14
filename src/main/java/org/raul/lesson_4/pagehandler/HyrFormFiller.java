@@ -8,6 +8,11 @@ import org.raul.lesson_4.utils.SwitchTab;
 
 import java.time.Duration;
 
+/*
+* Переключиться на окно, в котором открыта следующая
+* ссылка: https://www.hyrtutorials.com/p/alertsdemo.html
+* Нажать поочередно на кнопки...
+* */
 public class HyrFormFiller {
 
     private WebDriver driver;
@@ -16,7 +21,7 @@ public class HyrFormFiller {
         this.driver = driver;
     }
 
-    public void fillInForm() {
+    public String fillInForm() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         SwitchTab switchTab = new SwitchTab(driver);
         switchTab.switchBetweenTabs("AlertsDemo");
@@ -33,7 +38,6 @@ public class HyrFormFiller {
         Alert alert = driver.switchTo().alert();
         alert.accept();
         String text1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("output"))).getText();
-        System.out.println(text1);
 
         // После нажатия на вторую кнопку нажать “Cancel” на модальном окне и
         // вывести в консоль сообщение в модуле “Popup box output”.
@@ -44,7 +48,6 @@ public class HyrFormFiller {
         wait.until(ExpectedConditions.alertIsPresent());
         alert.dismiss();
         String text2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("output"))).getText();
-        System.out.println(text2);
 
         // После нажатия на третью кнопку, ввести текст “ Final step of this task” в
         // модальном окне и нажать “Ok”. Вывести в консоль сообщение в модуле “Popup box output”
@@ -58,8 +61,7 @@ public class HyrFormFiller {
         alert.sendKeys("Final step of this task");
         alert.accept();
         String text3 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("output"))).getText();
-        System.out.println(text3);
 
-        driver.quit();
+        return text1 + "\n" + text2 + "\n" + text3;
     }
 }

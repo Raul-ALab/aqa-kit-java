@@ -1,16 +1,14 @@
 package org.raul.lesson_4.pagehandler;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-@Getter(AccessLevel.PRIVATE)
+@Getter
 @Setter
 public class PageRegistration {
     private String name;
@@ -19,6 +17,7 @@ public class PageRegistration {
     private String email;
     private String password;
     private String confirmPassword;
+
     public void registrationSuccess(WebDriver driver, String url) {
         driver.get(url);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
@@ -32,19 +31,5 @@ public class PageRegistration {
 
         driver.findElement(By.name("password")).sendKeys(getPassword());
         driver.findElement(By.name("passwordConfirmation")).sendKeys(getConfirmPassword());
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-
-        wait.until(ExpectedConditions.elementToBeClickable(By
-                .xpath("//p[text()='Logout']"))).click();
-        driver.findElement(By.xpath("//button[@style='background: red;' "
-                + "and @label='Yes']")).click();
-
-        /* Wait for Sign In page and sign back with new credentials for
-        double-checking the account*/
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By
-                .xpath("//*[text()='Sign In']")));
-        driver.findElement(By.name("email")).sendKeys(getEmail());
-        driver.findElement(By.name("password")).sendKeys(getPassword());
-        driver.quit();
     }
 }
