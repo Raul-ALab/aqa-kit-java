@@ -44,14 +44,14 @@ public class EditAccountPasswordTest {
     @DataProvider(name = "existingCredentials")
     public Object[][] existingData() {
         return new Object[][]{
-                {"spader@example.com", "ab123456js.22"}
+                {"spader@example.com", "ab123456js.23"}
         };
     }
 
     @DataProvider(name = "updatedCredentials")
     public Object[][] updatedData() {
         return new Object[][]{
-                {"spader@example.com", "ab123456js.23", "ab123456js.23"}
+                {"spader@example.com", "ab123456js.24", "ab123456js.24"}
         };
     }
 }
