@@ -8,17 +8,18 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-/* Testcase ID: L019 */
-public class LoginSessionTest {
+/* Testcase ID: L020 */
+public class InvalidEmailLoginTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/login";
 
     private WebDriver driver;
-    private LoginSession loginSession;
+    private InvalidEmailLogin invalidEmail;
+
 
     @BeforeClass
     public void setUp() {
         driver = DriverSetUp.setUpChromeDriver();
-        loginSession = new LoginSession(driver);
+        invalidEmail = new InvalidEmailLogin(driver);
         driver.get(URL);
     }
 
@@ -29,19 +30,17 @@ public class LoginSessionTest {
         }
     }
 
-    @Test(dataProvider = "loginData")
-    public void verifyLoginSessionPersistsInNewWindow(String username, String password) {
-        boolean loginStatus = loginSession.login(username, password);
-        Assert.assertTrue(loginStatus, "Unsuccessful login attempt!");
+    @Test(dataProvider = "invalidEmail")
+    public void verifyInvalidEmailLoginError(String alwaysWrong, String correctPassword) {
+        invalidEmail.login(alwaysWrong, correctPassword);
 
-        boolean isSessionPersists = loginSession.compareUsers();
-        Assert.assertTrue(isSessionPersists, "Session isn't saved in a new window!");
+        Assert.assertTrue(invalidEmail.isErrorDisplayed(), "User shouldn't be able to login with invalid email!");
     }
 
-    @DataProvider(name = "loginData")
+    @DataProvider(name = "invalidEmail")
     public Object[][] existingData() {
         return new Object[][]{
-                {"mboone12@example.com", "mbmb.123456"}
+                {"nosuchemail@nomail.com", "ab123456js.22"}
         };
     }
 }
