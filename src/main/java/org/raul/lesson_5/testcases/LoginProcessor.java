@@ -22,6 +22,14 @@ public class LoginProcessor {
     protected WebElement submitElement;
     @FindBy(xpath = "//div//p[contains(text(), '@')]")
     protected WebElement loggedInEmailElement;
+    @FindBy(xpath = "//div//a[text()='Edit account']")
+    protected WebElement editElement;
+    @FindBy(xpath = "//input[@placeholder='Confirm Password']")
+    protected WebElement confirmPasswordElement;
+    @FindBy(xpath = "//p[text()='Logout']")
+    protected WebElement logoutElement;
+    @FindBy(xpath = "//button[@style='background: red;'and @label='Yes']")
+    protected WebElement confirmLogoutElement;
 
     public LoginProcessor(WebDriver driver) {
         this.driver = driver;
@@ -50,7 +58,7 @@ public class LoginProcessor {
         passwordLoginElement.sendKeys(password);
     }
 
-    private void clickSubmitBtn() {
+    protected void clickSubmitBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(submitElement)).click();
     }
 }
