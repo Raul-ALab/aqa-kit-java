@@ -1,5 +1,6 @@
 package org.raul.lesson_5.refactoring_lssn4.andersenlabpage;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,11 +26,13 @@ public class VerivoxPage {
     private By headerLocator = By.xpath("//*[text()='A FinTech Portal to Compare Utility Payment Rates']");
     private By cookieLocator = By.xpath("//section/following-sibling::div//div//button[contains(text(), 'Accept')]");
 
+
     public VerivoxPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
+    @Step("Navigate to and click on the Verivox menu")
     public WebElement navigateToVerivox() {
         wait.until(ExpectedConditions.elementToBeClickable(pageNameLocator));
         driver.findElement(pageNameLocator).click();
@@ -38,6 +41,7 @@ public class VerivoxPage {
         return driver.findElement(headerLocator);
     }
 
+    @Step("Accept cookies if present")
     public void acceptCookies() {
         HandleCookies.acceptCookiesIfPresent(driver, cookieLocator);
     }

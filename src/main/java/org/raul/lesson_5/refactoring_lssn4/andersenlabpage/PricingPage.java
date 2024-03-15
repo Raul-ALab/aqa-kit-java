@@ -1,5 +1,6 @@
 package org.raul.lesson_5.refactoring_lssn4.andersenlabpage;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,21 +31,25 @@ public class PricingPage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
+    @Step("Check if the url extension contains the specific word")
     public boolean isCostEstimationPageUrl() {
         wait.until(ExpectedConditions.urlContains("pricing"));
         return driver.getCurrentUrl().equals("https://andersenlab.com/pricing");
     }
 
+    @Step("Verify loaded page with header content")
     public String checkCostEstimationPageHeader() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(headerLocator));
         return driver.findElement(headerLocator).getText();
     }
 
+    @Step("Click on pricing button")
     public void clickPricingButton() {
         wait.until(ExpectedConditions.elementToBeClickable(pricingBtnLocator));
         driver.findElement(pricingBtnLocator).click();
     }
 
+    @Step("Accept cookies if present")
     public void acceptCookies() {
         HandleCookies.acceptCookiesIfPresent(driver, cookieLocator);
     }

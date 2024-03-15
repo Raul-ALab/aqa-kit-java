@@ -1,5 +1,12 @@
 package org.raul.lesson_5.lssn4_refactor.andersenlabpage;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.andersenlabpage.VerivoxPage;
 import org.raul.utils.DriverSetUp;
@@ -16,6 +23,8 @@ import org.testng.annotations.Test;
  *
  * L02: testcases_ lssn12.xlsx
  * */
+@Epic("AndersenLab Website Testing")
+@Feature("Verivox project page")
 public class VerivoxPageTest {
     private WebDriver driver;
     private VerivoxPage verivoxPage;
@@ -30,6 +39,10 @@ public class VerivoxPageTest {
     }
 
     @Test
+    @Description("Test Case L02 : Verify if clicking on the Verivox menu switches to and loads the correct page.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Click on Verivox from footer menu")
+    @Link(name = "Test Cases file lesson.12", url = "src/test/resources/testcases_ lssn12.xlsx")
     public void verifyClickAndPageLoad() {
         String headerText = verivoxPage.navigateToVerivox().getText();
         String expectedHeaderContains = "FinTech Portal";

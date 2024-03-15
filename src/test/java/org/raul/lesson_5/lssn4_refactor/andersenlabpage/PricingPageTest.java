@@ -1,5 +1,12 @@
 package org.raul.lesson_5.lssn4_refactor.andersenlabpage;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.andersenlabpage.PricingPage;
 import org.raul.utils.DriverSetUp;
@@ -16,6 +23,8 @@ import org.testng.annotations.Test;
  *
  * L01: testcases_ lssn12.xlsx
  * */
+@Epic("AndersenLab Website Testing")
+@Feature("Get pricing page")
 public class PricingPageTest {
     private WebDriver driver;
     private PricingPage pricingPage;
@@ -30,6 +39,10 @@ public class PricingPageTest {
     }
 
     @Test
+    @Description("Test Case L01 : Check if clicking the Get Pricing button leads to the cost estimation page.")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("Click Get pricing button")
+    @Link(name = "Test Cases file lesson.12", url = "src/test/resources/testcases_ lssn12.xlsx")
     public void verifyUrlAfterClickGetPricingButton() {
         pricingPage.clickPricingButton();
 
@@ -37,6 +50,10 @@ public class PricingPageTest {
     }
 
     @Test
+    @Description("Test Case L01 : Ensure that the correct page loads after clicking the Get Pricing button.")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Check if the loaded page contains correct content")
+    @Link(name = "Test Cases file lesson.12", url = "src/test/resources/testcases_ lssn12.xlsx")
     public void verifyGetPricingButtonLoadsEstimationPage() {
         pricingPage.clickPricingButton();
 
