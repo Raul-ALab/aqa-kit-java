@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
@@ -12,6 +13,8 @@ import org.testng.annotations.*;
  *
  * */
 @Listeners({AllureTestListener.class})
+@Epic("Test Cases from lesson 9")
+@Feature("Edit Page Testing")
 public class EditAccountSwitchUrlTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/login";
 
@@ -33,6 +36,8 @@ public class EditAccountSwitchUrlTest {
     }
 
     @Test(dataProvider = "loginData")
+    @Description("Test Case L021 : Same Error message.")
+    @Severity(SeverityLevel.CRITICAL)
     public void verifyEditBtnSwitchesPage(String username, String password) {
         boolean loginStatus = urlSwitch.login(username, password);
         Assert.assertTrue(loginStatus, "Unsuccessful login attempt!");

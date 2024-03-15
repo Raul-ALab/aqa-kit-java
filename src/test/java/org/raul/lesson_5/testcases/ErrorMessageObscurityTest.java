@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.raul.listener.AllureTestListener;
@@ -14,6 +15,8 @@ import org.testng.annotations.*;
  * Testcase ID: L021
  * */
 @Listeners({AllureTestListener.class})
+@Epic("Test Cases from lesson 9")
+@Feature("Login Page Testing")
 public class ErrorMessageObscurityTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/login";
 
@@ -35,6 +38,10 @@ public class ErrorMessageObscurityTest {
     }
 
     @Test(dataProvider = "invalidDetails")
+    @Description("Test Case L021 : Same Error message.")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Invalid email login error message same with wrong password error")
+    @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyInvalidEmailLoginError(String wrongE, String correctP, String correctE, String wrongP) {
         String emailError = obscurity.invalidEmailAttempt(wrongE, correctP);
 

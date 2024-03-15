@@ -1,10 +1,15 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /*
  * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
@@ -13,6 +18,8 @@ import org.testng.annotations.*;
  * Testcase ID: L020
  * */
 @Listeners({AllureTestListener.class})
+@Epic("Test Cases from lesson 9")
+@Feature("Login Page Testing")
 public class InvalidEmailLoginTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/login";
 
@@ -35,6 +42,10 @@ public class InvalidEmailLoginTest {
     }
 
     @Test(dataProvider = "invalidEmail")
+    @Description("Test Case L020 : Invalid Email login.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Invalid email login error ")
+    @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyInvalidEmailLoginError(String alwaysWrong, String correctPassword) {
         invalidEmail.login(alwaysWrong, correctPassword);
 
