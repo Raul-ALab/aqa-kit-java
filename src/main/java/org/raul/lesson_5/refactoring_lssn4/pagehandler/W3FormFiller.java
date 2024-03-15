@@ -1,5 +1,6 @@
 package org.raul.lesson_5.refactoring_lssn4.pagehandler;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,8 @@ import org.raul.utils.SwitchTab;
 import java.time.Duration;
 
 /*
- * Refactoring:
+ * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ *
  * В открытом окне заполнить поля своим именем и фамилией и нажать кнопку ‘Submit’.
  * После вывести в консоль текст данного элемента -> Note
  * */
@@ -35,6 +37,7 @@ public class W3FormFiller {
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
+    @Step("Enter first name")
     public void inputName() {
         WebElement iframe = driver.findElement(frameLocator);
         driver.switchTo().frame(iframe);
@@ -44,21 +47,25 @@ public class W3FormFiller {
         nameElement.sendKeys(this.fName);
     }
 
+    @Step("Enter last name")
     public void inputLastName() {
         WebElement lastName = driver.findElement(lnameLocator);
         lastName.clear();
         lastName.sendKeys(this.lName);
     }
 
+    @Step("Click submit button")
     public void clickSubmit() {
         driver.findElement(submitLocator).click();
     }
 
+    @Step("Retrieve note text")
     public String retrieveNoteText() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(noteLocator));
         return driver.findElement(noteLocator).getText();
     }
 
+    @Step("Switch to W3Schools page")
     public void switchToW3SchoolPage() {
         SwitchTab.switchBetweenTabs(driver, "W3Schools");
     }

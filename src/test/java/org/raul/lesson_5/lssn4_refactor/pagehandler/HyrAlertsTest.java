@@ -1,11 +1,19 @@
 package org.raul.lesson_5.lssn4_refactor.pagehandler;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.HyrAlerts;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+@Epic("HYR Alerts")
+@Feature("Alert Buttons Interaction Test")
 public class HyrAlertsTest {
     private HyrAlerts hyrAlerts;
 
@@ -17,6 +25,9 @@ public class HyrAlertsTest {
     }
 
     @Test
+    @Description("Interact with alert buttons and retrieve status messages.")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Story("Alerts button interaction")
     public void verifyAlertButtonsStatusMessages() {
         String alertBtnStatusNote = hyrAlerts.clickAlertBtn();
         System.out.println(alertBtnStatusNote);

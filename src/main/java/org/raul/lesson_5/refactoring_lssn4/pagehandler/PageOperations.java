@@ -1,5 +1,6 @@
 package org.raul.lesson_5.refactoring_lssn4.pagehandler;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 /*
- * Refactoring:
+ * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ *
  * 2. Необходимо автоматизировать сценарий, который показан на видео
  * Сценарий для автоматизации Лекция 12.mp4 :
  *   1)Для этого открыть поиск гугл: https://www.google.com/search
@@ -41,21 +43,25 @@ public class PageOperations {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
+    @Step("Search and open Guinness page in a new tab")
     public void searchGuinnessByUrl(String url) {
         executeSearch(url);
         openInNewTab(guinnessLocator);
     }
 
+    @Step("Search and open HYR Alerts page in a new tab")
     public void searchHyrByUrl(String url) {
         clearSearchField();
         executeSearch(url);
         openInNewTab(hyrLocator);
     }
 
+    @Step("Navigate to browser and open W3Schools page")
     public void searchW3ByUrl(String url) {
         driver.navigate().to(url);
     }
 
+    @Step("Navigate to the search field and enter url to execute search")
     private void executeSearch(String url) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchAreaLocator));
         WebElement searchField = driver.findElement(searchAreaLocator);
@@ -66,6 +72,7 @@ public class PageOperations {
                 .build().perform();
     }
 
+    @Step("Open the search result in a new tab")
     private void openInNewTab(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         WebElement searchResult = driver.findElement(locator);
@@ -77,6 +84,7 @@ public class PageOperations {
                 .build().perform();
     }
 
+    @Step("Clear search field prior to new search")
     private void clearSearchField() {
         driver.findElement(clearIconLocator).click();
     }

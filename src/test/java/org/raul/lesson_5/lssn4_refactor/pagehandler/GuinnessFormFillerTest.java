@@ -1,11 +1,19 @@
 package org.raul.lesson_5.lssn4_refactor.pagehandler;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.GuinnessFormFiller;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+@Epic("Guinness Page")
+@Feature("Verify Password Error")
 public class GuinnessFormFillerTest {
     private GuinnessFormFiller guinnessForm;
 
@@ -32,6 +40,9 @@ public class GuinnessFormFillerTest {
     }
 
     @Test
+    @Description("Verify error message when confirm password doesn't match.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Password mismatch error during registration")
     public void verifyPasswordMismatchErrors() {
         Assert.assertFalse(getPassword.equals(getConfirmPassword), "Password values are identical!");
 

@@ -1,11 +1,19 @@
 package org.raul.lesson_5.lssn4_refactor.pagehandler;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.W3FormFiller;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+@Epic("W3School Page")
+@Feature("Verify Registration Note")
 public class W3FormFillerTest {
     private W3FormFiller w3Form;
 
@@ -17,6 +25,9 @@ public class W3FormFillerTest {
     }
 
     @Test
+    @Description("Retrieve and verify registration success note.")
+    @Severity(SeverityLevel.MINOR)
+    @Story("Registration success note")
     public void verifyRegistrationSuccessNote() {
         w3Form.inputName();
         w3Form.inputLastName();
