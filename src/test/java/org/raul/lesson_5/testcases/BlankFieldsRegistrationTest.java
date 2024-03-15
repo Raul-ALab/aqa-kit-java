@@ -1,6 +1,12 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
@@ -42,8 +48,10 @@ public class BlankFieldsRegistrationTest {
     }
 
     @Test
-    @Description("Test Case L016 : Same Error message.")
+    @Description("Test Case L016 : Registration attempt with blank fields.")
     @Severity(SeverityLevel.CRITICAL)
+    @Story("Verify that user is unable to complete registration with blank fields")
+    @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyBlankFieldRegistrationAttempt() {
         blankRegistration.clickSubmit();
 

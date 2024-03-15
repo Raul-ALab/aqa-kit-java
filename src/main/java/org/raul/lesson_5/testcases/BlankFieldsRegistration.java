@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,10 +28,12 @@ public class BlankFieldsRegistration {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Click Submit button")
     public void clickSubmit() {
         submitElement.click();
     }
 
+    @Step("Check error message")
     public boolean isErrorDisplayed() {
         wait.until(ExpectedConditions.visibilityOf(nameErrorElement)).isDisplayed();
         return nameErrorElement.isDisplayed() && emailErrorElement.isDisplayed();

@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,10 +24,12 @@ public class BlankFieldsLogin {
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
     }
 
+    @Step("Click Submit button")
     public void clickLogin() {
         driver.findElement(signLocator).click();
     }
 
+    @Step("Check error message")
     public boolean isErrorDisplayed() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
         return driver.findElement(errorLocator).isDisplayed();

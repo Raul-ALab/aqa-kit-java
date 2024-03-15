@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,6 +18,7 @@ public class EditAccountPassword extends LoginProcessor {
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
+    @Step("Add new password: '{newPassword}' and confirm password: '{confirmPassword}'")
     public void updatePassword(String newPassword, String confirmPassword) {
         wait.until(ExpectedConditions.elementToBeClickable(editElement)).click();
         passwordLoginElement.sendKeys(newPassword);
@@ -24,6 +26,7 @@ public class EditAccountPassword extends LoginProcessor {
         clickSubmitBtn();
     }
 
+    @Step("Click Logout button")
     public void clickLogout() {
         wait.until(ExpectedConditions.elementToBeClickable(logoutElement)).click();
         wait.until(ExpectedConditions.elementToBeClickable(confirmLogoutElement)).click();

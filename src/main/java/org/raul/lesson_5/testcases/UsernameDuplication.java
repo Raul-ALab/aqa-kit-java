@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -30,32 +31,39 @@ public class UsernameDuplication {
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
     }
 
+    @Step("Enter first name: {fName}")
     public void inputName(String fName) {
         driver.findElement(fNameLocator).sendKeys(fName);
     }
 
+    @Step("Enter last name: {lName}")
     public void inputLastName(String lName) {
         driver.findElement(lNameLocator).sendKeys(lName);
     }
 
+    @Step("Enter birthdate: {birthdate}")
     public void inputBirthday(String birthdate) {
         driver.findElement(birthdayLocator).sendKeys(birthdate);
         driver.findElement(emailLocator).click(); // to dismiss calendar
     }
 
+    @Step("Enter email: {email}")
     public void inputEmail(String email) {
         driver.findElement(emailLocator).sendKeys(email);
     }
 
+    @Step("Enter password: {password}")
     public void inputPassword(String password) {
         driver.findElement(passwordLocator).sendKeys(password);
     }
 
+    @Step("Confirm password: '{confirmPassword}', and click Submit button")
     public void inputConfirmPassword(String confirmPassword) {
         driver.findElement(confirmPassLocator).sendKeys(confirmPassword);
         driver.findElement(submitLocator).click();
     }
 
+    @Step("Check error message by URL state")
     public boolean isDuplicateAllowed() {
         String registrationUrl = "registration";
         try {

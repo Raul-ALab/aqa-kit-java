@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
@@ -19,6 +20,7 @@ public class LoginSession extends LoginProcessor {
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
+    @Step("Check user equality in two windows")
     public boolean compareUsers() {
         String initialWindowUser = getUsername();
         String secondWindowUser = "";
@@ -32,6 +34,7 @@ public class LoginSession extends LoginProcessor {
         return initialWindowUser.equals(secondWindowUser);
     }
 
+    @Step("Enter URL in the new window")
     public boolean copyUrlToNewWindow() {
         String currentUrl = driver.getCurrentUrl();
         driver.switchTo().newWindow(WindowType.WINDOW);
@@ -44,6 +47,7 @@ public class LoginSession extends LoginProcessor {
         return true;
     }
 
+    @Step("Retrieve username info from the current session")
     private String getUsername() {
         return loggedInEmailElement.getText();
     }

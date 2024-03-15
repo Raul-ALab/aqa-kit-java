@@ -36,6 +36,7 @@ public class AllureTestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         saveScreenShot(((TakesScreenshot) DriverSetUp.setUpChromeDriver()).getScreenshotAs(OutputType.BYTES));
+        System.out.println("Failed test method: " + getMethodName(result));
     }
 
     @Override
@@ -45,6 +46,6 @@ public class AllureTestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iContext) {
-        System.out.println("Completed tests in the " + iContext.getName().toUpperCase() + " project!");
+        System.out.println("Completed test(s) in the " + iContext.getName().toUpperCase() + " project!");
     }
 }

@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,6 +38,7 @@ public class LoginProcessor {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Execute login process")
     public boolean login(String username, String password) {
         enterUsername(username);
         enterPassword(password);
@@ -50,14 +52,17 @@ public class LoginProcessor {
         return true;
     }
 
+    @Step("Enter username: {username}")
     private void enterUsername(String username) {
         emailLoginElement.sendKeys(username);
     }
 
+    @Step("Enter password: {password}")
     private void enterPassword(String password) {
         passwordLoginElement.sendKeys(password);
     }
 
+    @Step("Click Submit button")
     protected void clickSubmitBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(submitElement)).click();
     }

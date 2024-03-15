@@ -1,12 +1,21 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /*
  * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
@@ -38,12 +47,19 @@ public class EditAccountPasswordTest {
     }
 
     @Test(dataProvider = "existingCredentials")
+    @Description("Login attempt success.")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("User can log in with correct credentials")
     public void loginToAccount(String username, String password) {
         boolean isLoggedIn = editPassword.login(username, password);
         Assert.assertTrue(isLoggedIn, "Unsuccessful login attempt!");
     }
 
     @Test(dataProvider = "updatedCredentials", dependsOnMethods = "loginToAccount")
+    @Description("Test Case L017 : Successful completion of the password update.")
+    @Severity(SeverityLevel.MINOR)
+    @Story("User updates password and is able to log in with the new password")
+    @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void updatePassword(String username, String newPassword, String confirmPassword) {
         editPassword.updatePassword(newPassword, confirmPassword);
         editPassword.clickLogout();
@@ -52,14 +68,14 @@ public class EditAccountPasswordTest {
     @DataProvider(name = "existingCredentials")
     public Object[][] existingData() {
         return new Object[][]{
-                {"spader@example.com", "ab123456js.23"}
+                {"spader@example.com", "ab123456js.24"}
         };
     }
 
     @DataProvider(name = "updatedCredentials")
     public Object[][] updatedData() {
         return new Object[][]{
-                {"spader@example.com", "ab123456js.24", "ab123456js.24"}
+                {"spader@example.com", "ab123456js.25", "ab123456js.25"}
         };
     }
 }

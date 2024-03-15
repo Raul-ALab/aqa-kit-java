@@ -1,6 +1,12 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
@@ -43,7 +49,7 @@ public class LoginSessionTest {
     @Test(dataProvider = "loginData")
     @Description("Test Case L019 : User session persistence.")
     @Severity(SeverityLevel.MINOR)
-    @Story("User's session is saved")
+    @Story("Unless explicitly logged out, browser sessions should be preserved")
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyLoginSessionPersistsInNewWindow(String username, String password) {
         boolean loginStatus = loginSession.login(username, password);

@@ -1,16 +1,27 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /*
  * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
  * 2. Добавьте браузерные логи, если это потребуется.
  *
+ * Testcase ID: L018
  * */
 @Listeners({AllureTestListener.class})
 @Epic("Test Cases from lesson 9")
@@ -36,8 +47,10 @@ public class EditAccountSwitchUrlTest {
     }
 
     @Test(dataProvider = "loginData")
-    @Description("Test Case L021 : Same Error message.")
-    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test Case L018 : Updated URL with the 'edit account' button.")
+    @Severity(SeverityLevel.MINOR)
+    @Story("'Edit Account' button should take the user to a new page with the correct URL for editing account details.")
+    @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyEditBtnSwitchesPage(String username, String password) {
         boolean loginStatus = urlSwitch.login(username, password);
         Assert.assertTrue(loginStatus, "Unsuccessful login attempt!");

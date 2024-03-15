@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,7 @@ public class PageAccessibility {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
+    @Step("Move forward with the keyboard Tab button")
     public boolean navigateForward() {
         WebElement startPoint = wait.until(ExpectedConditions.visibilityOfElementLocated(nameLocator));
         WebElement destinationPoint = driver.findElement(signInLocator);
@@ -41,6 +43,7 @@ public class PageAccessibility {
         return isReachedToDestination;
     }
 
+    @Step("Move backward with the Shift+Tab keyboard shortcut")
     public boolean navigateBackward() {
         WebElement startPoint = wait.until(ExpectedConditions.visibilityOfElementLocated(signInLocator));
         WebElement destinationPoint = driver.findElement(nameLocator);

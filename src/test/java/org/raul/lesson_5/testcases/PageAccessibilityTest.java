@@ -1,6 +1,12 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
@@ -42,8 +48,8 @@ public class PageAccessibilityTest {
 
     @Test
     @Description("Test Case L015 : Registration page accessibility.")
-    @Severity(SeverityLevel.MINOR)
-    @Story("Navigate forward with keyboard via Tab")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Story("User is able to navigate forward with keyboard via Tab button")
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyPageAccessibilityNavigateForwardViaKeyboard() {
         boolean isReachedToEndDestination = accessibility.navigateForward();
@@ -52,8 +58,8 @@ public class PageAccessibilityTest {
 
     @Test(dependsOnMethods = "verifyPageAccessibilityNavigateForwardViaKeyboard")
     @Description("Test Case L015 : Registration page accessibility.")
-    @Severity(SeverityLevel.MINOR)
-    @Story("Navigate backward with keyboard via Tab")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Story("User is able to navigate backward with keyboard via Shift+Tab buttons")
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyPageAccessibilityNavigateBackwardViaKeyboard() {
         boolean isReachedToTopDestination = accessibility.navigateBackward();

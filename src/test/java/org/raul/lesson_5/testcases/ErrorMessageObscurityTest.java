@@ -1,12 +1,22 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /*
  * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
@@ -38,9 +48,9 @@ public class ErrorMessageObscurityTest {
     }
 
     @Test(dataProvider = "invalidDetails")
-    @Description("Test Case L021 : Same Error message.")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Invalid email login error message same with wrong password error")
+    @Description("Test Case L021 : Security through obscurity approach.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Verify that invalid email and invalid password login attempts returns a generic error message in both cases")
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyInvalidEmailLoginError(String wrongE, String correctP, String correctE, String wrongP) {
         String emailError = obscurity.invalidEmailAttempt(wrongE, correctP);

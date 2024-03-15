@@ -1,6 +1,12 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
@@ -42,9 +48,9 @@ public class InvalidEmailLoginTest {
     }
 
     @Test(dataProvider = "invalidEmail")
-    @Description("Test Case L020 : Invalid Email login.")
-    @Severity(SeverityLevel.NORMAL)
-    @Story("Invalid email login error ")
+    @Description("Test Case L020 : Login attempt with an invalid email.")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Verify error message with an invalid email attempt")
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyInvalidEmailLoginError(String alwaysWrong, String correctPassword) {
         invalidEmail.login(alwaysWrong, correctPassword);

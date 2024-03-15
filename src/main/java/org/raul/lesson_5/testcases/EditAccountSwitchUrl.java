@@ -1,5 +1,6 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,6 +15,7 @@ public class EditAccountSwitchUrl extends LoginProcessor {
         this.driver = driver;
     }
 
+    @Step("Click 'Edit Account'")
     public boolean clickEditAccount() {
         driver.findElement(editLocator).click();
         return driver.getCurrentUrl().contains("editAccount");

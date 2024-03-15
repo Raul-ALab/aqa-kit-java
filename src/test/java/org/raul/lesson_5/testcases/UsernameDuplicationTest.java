@@ -1,6 +1,12 @@
 package org.raul.lesson_5.testcases;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
@@ -42,9 +48,9 @@ public class UsernameDuplicationTest {
     }
 
     @Test(dataProvider = "registration")
-    @Description("Test Case L03 : Check registration page input fields.")
+    @Description("Test Case L03 : Registration with duplicate username.")
     @Severity(SeverityLevel.NORMAL)
-    @Story("Enter data to input fields")
+    @Story("User is unable to complete registration with an existing username")
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyRegistrationPageInputFields(String fName, String lName, String birthdate,
                                                   String email, String password, String confirmPassword) {
