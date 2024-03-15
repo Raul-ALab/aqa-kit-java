@@ -1,5 +1,6 @@
 package org.raul.utils;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HandleCookies {
+    @Step("Check and accept cookies")
     public static void acceptCookiesIfPresent(WebDriver driver, By cookieLocator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
 
