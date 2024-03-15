@@ -9,20 +9,25 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.andersenlabpage.VerivoxPage;
+import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 /*
- * Refactoring:
+ * 1.	Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 2.	Добавьте браузерные логи, если это потребуется.
+ *
  * 1. Напишите 2 тест кейса на проверку каких либо визуальных элементов сайта
  * https://andersenlab.com/. (Например отображение кнопок Skype, WatsApp или
  * на переход на страницу проекта Verivox. А лучше придумайте что-нибудь свое)).
  *
  * L02: testcases_ lssn12.xlsx
  * */
+@Listeners({AllureTestListener.class})
 @Epic("AndersenLab Website Testing")
 @Feature("Verivox project page")
 public class VerivoxPageTest {

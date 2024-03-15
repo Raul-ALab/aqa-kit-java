@@ -9,18 +9,22 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.PageOperations;
+import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 /*
- * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 1.	Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 2.	Добавьте браузерные логи, если это потребуется.
  *
  * This method is to execute all tests for scenario 2 : W3Schools, Guinness, and HyrAlerts.
  * 2. Необходимо автоматизировать сценарий, который показан на видео "Сценарий
  * для автоматизации Лекция 12.mp4".
  * */
+@Listeners({AllureTestListener.class})
 @Epics({
         @Epic("W3School Page"),
         @Epic("Guinness Page"),

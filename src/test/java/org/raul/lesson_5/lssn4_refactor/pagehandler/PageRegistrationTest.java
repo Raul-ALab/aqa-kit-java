@@ -8,20 +8,20 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.PageRegistration;
+import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 /*
- * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 1.	Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 2.	Добавьте браузерные логи, если это потребуется.
  *
  * 3. Необходимо автоматизировать сценарий, который показан
  * на видео “Сценарий для автоматизации Лекция 12ч2.mp4.
  * */
 
+@Listeners({AllureTestListener.class})
 @Epic("QA course : andersenlab.com")
 @Feature("Registration Page Entry Testing")
 public class PageRegistrationTest {

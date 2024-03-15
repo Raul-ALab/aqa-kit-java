@@ -8,10 +8,13 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.GuinnessFormFiller;
+import org.raul.listener.AllureTestListener;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({AllureTestListener.class})
 @Epic("Guinness Page")
 @Feature("Verify Password Error")
 public class GuinnessFormFillerTest {

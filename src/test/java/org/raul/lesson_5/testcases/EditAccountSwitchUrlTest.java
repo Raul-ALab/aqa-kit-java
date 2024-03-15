@@ -1,13 +1,17 @@
 package org.raul.lesson_5.testcases;
 
 import org.openqa.selenium.WebDriver;
+import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+/*
+ * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 2. Добавьте браузерные логи, если это потребуется.
+ *
+ * */
+@Listeners({AllureTestListener.class})
 public class EditAccountSwitchUrlTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/login";
 
