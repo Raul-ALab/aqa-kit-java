@@ -30,7 +30,7 @@ public class AllureTestListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        System.out.println("Skipped trest method: " + getMethodName(result));
+        System.out.println("Skipped test method: " + getMethodName(result));
     }
 
     @Override
@@ -45,6 +45,6 @@ public class AllureTestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iContext) {
-        System.out.println("Completed method: " + iContext.getName());
+        System.out.println("Completed tests in the " + iContext.getName().toUpperCase() + " project!");
     }
 }
