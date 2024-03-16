@@ -68,7 +68,6 @@ public class PageOperationsTestManager {
     }
 
     @Test(dependsOnMethods = "verifySuccessfulOpeningOfUrls")
-    @Feature("Verify Registration Note")
     @Description("Execute and manage tests from W3FormFillerTest.")
     public void executeW3SchoolsTest() {
         W3FormFillerTest w3Test = new W3FormFillerTest();
@@ -77,7 +76,6 @@ public class PageOperationsTestManager {
     }
 
     @Test(dependsOnMethods = "executeW3SchoolsTest", alwaysRun = true)
-    @Feature("Verify Password Error")
     @Description("Execute and manage tests from GuinnessFormFillerTest.")
     public void executeGuinnessTest() {
         GuinnessFormFillerTest guinnessTest = new GuinnessFormFillerTest();
@@ -86,7 +84,6 @@ public class PageOperationsTestManager {
     }
 
     @Test(dependsOnMethods = "executeGuinnessTest", alwaysRun = true)
-    @Feature("Alert Buttons Interaction Test")
     @Description("Execute and manage tests from HyrAlertsTest.")
     public void executeHyrAlertsTest() {
         HyrAlertsTest hyrTest = new HyrAlertsTest();
