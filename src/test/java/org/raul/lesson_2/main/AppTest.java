@@ -1,20 +1,13 @@
 package org.raul.lesson_2.main;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.raul.lesson_2.scripts.ElementComparison;
-import org.raul.lesson_2.scripts.PageInteractions;
-import org.raul.lesson_2.scripts.WindowHandler;
+import org.raul.lesson_2.utils.ObsoleteDriverSetUp;
 import org.raul.lesson_2.testcases.LoginFlow;
 import org.raul.lesson_2.testcases.RegistrationFlow;
-import org.raul.lesson_2.utils.DriverSetUp;
-
-import java.util.Map;
 
 public class AppTest {
     public static void main(String[] args) {
-        WebDriver driver = DriverSetUp.setUpDriver();
+        WebDriver driver = ObsoleteDriverSetUp.setUpDriver();
 
         /* Running methods for assignment No.1: RegistrationFlow test cases */
         String urlRegister = "https://qa-course-01.andersenlab.com/registration";

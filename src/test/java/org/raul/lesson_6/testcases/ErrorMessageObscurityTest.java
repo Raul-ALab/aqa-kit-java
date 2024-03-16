@@ -10,7 +10,7 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.raul.listener.AllureTestListener;
-import org.raul.utils.DriverSetUp;
+import org.raul.utils.DriverSetUp2;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterClass;
@@ -35,7 +35,7 @@ public class ErrorMessageObscurityTest {
 
     @BeforeClass
     public void setUp() {
-        driver = DriverSetUp.setUpChromeDriver();
+        driver = DriverSetUp2.startDriver();
         obscurity = new ErrorMessageObscurity(driver);
         driver.get(URL);
     }

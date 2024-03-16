@@ -1,10 +1,11 @@
-package org.raul.lesson_2.utils;
+package org.raul.lesson_3.loginsuccess;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class DriverSetUp {
+@Deprecated
+class ObsoleteDriverSetUp {
     public static WebDriver setUpDriver() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();

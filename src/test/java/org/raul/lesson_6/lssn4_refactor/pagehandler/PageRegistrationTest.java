@@ -9,9 +9,13 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.pagehandler.PageRegistration;
 import org.raul.listener.AllureTestListener;
-import org.raul.utils.DriverSetUp;
+import org.raul.utils.DriverSetUp2;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /*
  * 1.	Добавьте аллюр-репортинг к нашим тестам: своему проекту.
@@ -33,7 +37,7 @@ public class PageRegistrationTest {
 
     @BeforeMethod
     public void setUp() {
-        driver = DriverSetUp.setUpChromeDriver();
+        driver = DriverSetUp2.startDriver();
         pageRegistration = new PageRegistration(driver);
         driver.get(URL);
     }

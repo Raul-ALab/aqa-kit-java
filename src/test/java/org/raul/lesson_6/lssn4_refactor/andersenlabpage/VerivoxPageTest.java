@@ -10,7 +10,7 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.andersenlabpage.VerivoxPage;
 import org.raul.listener.AllureTestListener;
-import org.raul.utils.DriverSetUp;
+import org.raul.utils.DriverSetUp2;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,22 +31,24 @@ import org.testng.annotations.Test;
 @Epic("AndersenLab Website Testing")
 @Feature("Verivox project page")
 public class VerivoxPageTest {
+    private static final String URL = "https://andersenlab.com/";
+
     private WebDriver driver;
     private VerivoxPage verivoxPage;
 
     @BeforeMethod
     public void setUp() {
-        driver = DriverSetUp.setUpChromeDriver();
+        driver = DriverSetUp2.startDriver();
         verivoxPage = new VerivoxPage(driver);
 
-        driver.get("https://andersenlab.com/");
+        driver.get(URL);
         verivoxPage.acceptCookies();
     }
 
     @Test
-    @Description("Test Case L02 : Verify if clicking on the Verivox menu switches to and loads the correct page.")
+    @Description("Test Case L02 : Switch to Verivox page.")
     @Severity(SeverityLevel.NORMAL)
-    @Story("Click on Verivox from footer menu")
+    @Story("Verify if clicking on the Verivox menu switches to and loads the correct page")
     @Link(name = "Test Cases file lesson.12", url = "src/test/resources/testcases_ lssn12.xlsx")
     public void verifyClickAndPageLoad() {
         String headerText = verivoxPage.navigateToVerivox().getText();

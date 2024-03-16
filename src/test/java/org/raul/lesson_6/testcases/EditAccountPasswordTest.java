@@ -9,7 +9,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
-import org.raul.utils.DriverSetUp;
+import org.raul.utils.DriverSetUp2;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterClass;
@@ -34,7 +34,7 @@ public class EditAccountPasswordTest {
 
     @BeforeClass
     public void setUp() {
-        driver = DriverSetUp.setUpChromeDriver();
+        driver = DriverSetUp2.startDriver();
         editPassword = new EditAccountPassword(driver);
         driver.get(URL);
     }
@@ -68,14 +68,14 @@ public class EditAccountPasswordTest {
     @DataProvider(name = "existingCredentials")
     public Object[][] existingData() {
         return new Object[][]{
-                {"spader@example.com", "ab123456js.24"}
+                {"spader@example.com", "ab123456js.26"}
         };
     }
 
     @DataProvider(name = "updatedCredentials")
     public Object[][] updatedData() {
         return new Object[][]{
-                {"spader@example.com", "ab123456js.25", "ab123456js.25"}
+                {"spader@example.com", "ab123456js.27", "ab123456js.27"}
         };
     }
 }

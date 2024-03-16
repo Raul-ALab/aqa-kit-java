@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 
+@Deprecated
 public class DriverSetUp {
 
     @Step("Set up Chrome driver")

@@ -10,7 +10,7 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.andersenlabpage.PricingPage;
 import org.raul.listener.AllureTestListener;
-import org.raul.utils.DriverSetUp;
+import org.raul.utils.DriverSetUp2;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -31,22 +31,24 @@ import org.testng.annotations.Test;
 @Epic("AndersenLab Website Testing")
 @Feature("Get pricing page")
 public class PricingPageTest {
+    private static final String URL = "https://andersenlab.com/";
+
     private WebDriver driver;
     private PricingPage pricingPage;
 
     @BeforeClass
     public void setUp() {
-        driver = DriverSetUp.setUpChromeDriver();
+        driver = DriverSetUp2.startDriver();
         pricingPage = new PricingPage(driver);
 
-        driver.get("https://andersenlab.com/");
+        driver.get(URL);
         pricingPage.acceptCookies();
     }
 
     @Test
-    @Description("Test Case L01 : Check if clicking the Get Pricing button leads to the cost estimation page.")
+    @Description("Test Case L01 : Switch to Cost Estimation page.")
     @Severity(SeverityLevel.BLOCKER)
-    @Story("Click Get pricing button")
+    @Story("Check if clicking the Get Pricing button leads to the cost estimation page.")
     @Link(name = "Test Cases file lesson.12", url = "src/test/resources/testcases_ lssn12.xlsx")
     public void verifyUrlAfterClickGetPricingButton() {
         pricingPage.clickPricingButton();

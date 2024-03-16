@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.raul.lesson_3.utils.DriverSetUp;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -20,7 +19,7 @@ public class LoginParameters {
     @Test
     @Parameters({"email", "password"})
     public void loginSuccessTestParameters(String email, String password) {
-        WebDriver driver = DriverSetUp.setUpDriver();
+        WebDriver driver = ObsoleteDriverSetUp.setUpDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         driver.get("https://qa-course-01.andersenlab.com/login");
 

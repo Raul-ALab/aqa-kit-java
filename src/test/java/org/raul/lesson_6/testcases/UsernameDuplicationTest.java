@@ -9,7 +9,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
-import org.raul.utils.DriverSetUp;
+import org.raul.utils.DriverSetUp2;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterClass;
@@ -35,7 +35,7 @@ public class UsernameDuplicationTest {
 
     @BeforeClass
     public void setUp() {
-        driver = DriverSetUp.setUpChromeDriver();
+        driver = DriverSetUp2.startDriver();
         duplication = new UsernameDuplication(driver);
         driver.get(URL);
     }
