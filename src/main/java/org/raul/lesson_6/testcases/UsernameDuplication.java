@@ -1,9 +1,11 @@
 package org.raul.lesson_6.testcases;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,50 +19,68 @@ public class UsernameDuplication {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By fNameLocator = By.xpath("//input[@name='firstName']");
-    private By lNameLocator = By.xpath("//input[@name='lastName']");
-    private By birthdayLocator = By.xpath("//input[@name='dateOfBirth']");
-    private By emailLocator = By.xpath("//input[@name='email']");
-    private By passwordLocator = By.xpath("//input[@name='password']");
-    private By confirmPassLocator = By.xpath("//input[@name='passwordConfirmation']");
-    private By submitLocator = By.xpath("//button[@type='submit']");
-
+    @FindBy(xpath = "//input[@name='firstName']")
+    private WebElement fNameLocator;
+    @FindBy(xpath = "//input[@name='lastName']")
+    private WebElement lNameLocator;
+    @FindBy(xpath = "//input[@name='dateOfBirth']")
+    private WebElement birthdayLocator;
+    @FindBy(xpath = "//input[@name='email']")
+    private WebElement emailLocator;
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement passwordLocator;
+    @FindBy(xpath = "//input[@name='passwordConfirmation']")
+    private WebElement confirmPassLocator;
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement submitLocator;
 
     public UsernameDuplication(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        PageFactory.initElements(driver, this);
     }
 
     @Step("Enter first name: {fName}")
-    public void inputName(String fName) {
-        driver.findElement(fNameLocator).sendKeys(fName);
+    public UsernameDuplication inputName(String fName) {
+        fNameLocator.sendKeys(fName);
+        return this;
     }
 
     @Step("Enter last name: {lName}")
-    public void inputLastName(String lName) {
-        driver.findElement(lNameLocator).sendKeys(lName);
+    public UsernameDuplication inputLastName(String lName) {
+        lNameLocator.sendKeys(lName);
+        return this;
     }
 
     @Step("Enter birthdate: {birthdate}")
-    public void inputBirthday(String birthdate) {
-        driver.findElement(birthdayLocator).sendKeys(birthdate);
-        driver.findElement(emailLocator).click(); // to dismiss calendar
+    public UsernameDuplication inputBirthday(String birthdate) {
+        birthdayLocator.sendKeys(birthdate);
+        emailLocator.click(); // to dismiss calendar
+        return this;
     }
 
     @Step("Enter email: {email}")
-    public void inputEmail(String email) {
-        driver.findElement(emailLocator).sendKeys(email);
+    public UsernameDuplication inputEmail(String email) {
+        emailLocator.sendKeys(email);
+        return this;
     }
 
     @Step("Enter password: {password}")
-    public void inputPassword(String password) {
-        driver.findElement(passwordLocator).sendKeys(password);
+    public UsernameDuplication inputPassword(String password) {
+        passwordLocator.sendKeys(password);
+        return this;
     }
 
-    @Step("Confirm password: '{confirmPassword}', and click Submit button")
-    public void inputConfirmPassword(String confirmPassword) {
-        driver.findElement(confirmPassLocator).sendKeys(confirmPassword);
-        driver.findElement(submitLocator).click();
+    @Step("Confirm password: '{confirmPassword}'")
+    public UsernameDuplication inputConfirmPassword(String confirmPassword) {
+        confirmPassLocator.sendKeys(confirmPassword);
+        return this;
+    }
+
+    @Step("Click Submit button")
+    public UsernameDuplication clickSubmit() {
+        submitLocator.click();
+        return this;
     }
 
     @Step("Check error message by URL state")

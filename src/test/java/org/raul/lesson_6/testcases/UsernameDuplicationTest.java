@@ -31,12 +31,10 @@ public class UsernameDuplicationTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/registration";
 
     private WebDriver driver;
-    private UsernameDuplication duplication;
 
     @BeforeClass
     public void setUp() {
         driver = DriverSetUp2.startDriver();
-        duplication = new UsernameDuplication(driver);
         driver.get(URL);
     }
 
@@ -54,14 +52,16 @@ public class UsernameDuplicationTest {
     @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyRegistrationPageInputFields(String fName, String lName, String birthdate,
                                                   String email, String password, String confirmPassword) {
-        duplication.inputName(fName);
-        duplication.inputLastName(lName);
-        duplication.inputBirthday(birthdate);
-        duplication.inputEmail(email);
-        duplication.inputPassword(password);
-        duplication.inputConfirmPassword(confirmPassword);
 
-        Assert.assertFalse(duplication.isDuplicateAllowed(), "Duplicate username shouldn't be allowed!");
+        boolean getResult = new UsernameDuplication(driver)
+                .inputName(fName)
+                .inputLastName(lName)
+                .inputBirthday(birthdate)
+                .inputEmail(email)
+                .inputPassword(password)
+                .inputConfirmPassword(confirmPassword)
+                .isDuplicateAllowed();
+        Assert.assertFalse(getResult, "Duplicate username shouldn't be allowed!");
     }
 
     @DataProvider(name = "registration")
