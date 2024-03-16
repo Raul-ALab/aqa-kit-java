@@ -16,14 +16,14 @@ public class ErrorMessageObscurity extends LoginProcessor {
     }
 
     @Step("Enter invalid email '{invalidEmail}' with a valid password: '{correctPassword}'")
-    public String invalidEmailAttempt(String invalidEmail, String correctPasswor) {
-        login(invalidEmail, correctPasswor);
+    public String invalidEmailAttempt(String invalidEmail, String correctPassword) {
+        login(invalidEmail, correctPassword);
         return driver.findElement(errorLocator).getText();
     }
 
     @Step("Enter valid email '{correctEmail}' with a wrong password: '{wrongPassword}'")
-    public String invalidPasswordAttempt(String correctEmail, String wrongPasswor) {
-        login(correctEmail, wrongPasswor);
+    public String invalidPasswordAttempt(String correctEmail, String wrongPassword) {
+        login(correctEmail, wrongPassword);
         return driver.findElement(errorLocator).getText();
     }
 }

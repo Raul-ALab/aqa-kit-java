@@ -49,7 +49,6 @@ public class EditAccountPasswordTest {
     @Test(dataProvider = "existingCredentials")
     @Description("Login attempt success.")
     @Severity(SeverityLevel.BLOCKER)
-    @Story("User can log in with correct credentials")
     public void loginToAccount(String username, String password) {
         boolean isLoggedIn = editPassword.login(username, password);
         Assert.assertTrue(isLoggedIn, "Unsuccessful login attempt!");
