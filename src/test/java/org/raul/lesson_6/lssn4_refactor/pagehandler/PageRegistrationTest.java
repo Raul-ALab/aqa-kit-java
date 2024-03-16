@@ -6,6 +6,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.pagehandler.PageRegistration;
 import org.raul.listener.AllureTestListener;
@@ -28,6 +29,7 @@ import org.testng.annotations.Test;
 @Listeners({AllureTestListener.class})
 @Epic("QA course : andersenlab.com")
 @Feature("Registration Page Entry Testing")
+@Owner("Rashad Raul")
 public class PageRegistrationTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/registration";
 

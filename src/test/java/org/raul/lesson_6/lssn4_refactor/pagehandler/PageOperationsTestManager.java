@@ -7,6 +7,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.pagehandler.PageOperations;
 import org.raul.listener.AllureTestListener;
@@ -31,6 +32,7 @@ import org.testng.annotations.Test;
         @Epic("HYR Alerts")
 })
 @Feature("Page Interactions Tests Runner")
+@Owner("Rashad Raul")
 public class PageOperationsTestManager {
     private static final String BASE_URL = "https://www.google.com/search";
     private static final String URL_1 = "https://www.guinnessworldrecords.com/account/register?";
