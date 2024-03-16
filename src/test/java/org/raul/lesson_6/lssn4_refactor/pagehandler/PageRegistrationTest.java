@@ -32,13 +32,11 @@ public class PageRegistrationTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/registration";
 
     private WebDriver driver;
-    private PageRegistration pageRegistration;
 
 
     @BeforeMethod
     public void setUp() {
         driver = DriverSetUp2.startDriver();
-        pageRegistration = new PageRegistration(driver);
         driver.get(URL);
     }
 
@@ -54,26 +52,28 @@ public class PageRegistrationTest {
     @Severity(SeverityLevel.NORMAL)
     @Story("User can fill out data entry fields")
     public void verifyRegistrationPageInputFields(String fName, String lName, String mmddyyyyBirthdate,
-                                                  String email, String password, String confirmPassword) {
-        String verifySignUpPage = pageRegistration.signUpHeader();
-        pageRegistration.inputName(fName);
-        pageRegistration.inputLastName(lName);
-        pageRegistration.inputEmail(email);
-        pageRegistration.inputBirthday(mmddyyyyBirthdate);
-        pageRegistration.inputPassword(password);
-        String confirmPasswordValue = pageRegistration.inputConfirmPassword(confirmPassword);
+                                                  String email, String password, String confirmPassword,
+                                                  String expectedPassword, String expectedFormHeader) {
 
-        String expectedFormHeader = "Registration";
-        String expectedPassword = "a.park123";
+        String getResults = new PageRegistration(driver)
+                .inputName(fName)
+                .inputLastName(lName)
+                .inputBirthday(mmddyyyyBirthdate)
+                .inputEmail(email)
+                .inputPassword(password)
+                .inputConfirmPassword(confirmPassword)
+                .getHeaderAndPasswordValue();
 
-        Assert.assertEquals(verifySignUpPage, expectedFormHeader, "Issue with loading 'Registration' page!");
-        Assert.assertEquals(confirmPasswordValue, expectedPassword, "Confirm password mismatch!");
+        String[] splitForAssert = getResults.split(":"); // 0-header; 1-passValue
+
+        Assert.assertEquals(splitForAssert[0], expectedFormHeader, "Issue with loading 'Registration' page!");
+        Assert.assertEquals(splitForAssert[1], expectedPassword, "Confirm password mismatch!");
     }
 
     @DataProvider(name = "data")
     public Object[][] registrationData() {
         return new Object[][]{
-                {"Alina", "Park", "03/23/2000", "apark@example.com", "a.park123", "a.park123"}
-        };
+                {"Alina", "Park", "03/23/2000", "apark@example.com",
+                        "a.park123", "a.park123", "a.park123", "Registration"}};
     }
 }

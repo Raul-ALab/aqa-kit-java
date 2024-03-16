@@ -1,8 +1,10 @@
 package org.raul.lesson_6.refactoring_lssn4.pagehandler;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /*
  * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
@@ -13,52 +15,68 @@ import org.openqa.selenium.WebDriver;
 public class PageRegistration {
     private WebDriver driver;
 
-    private By headerLocator = By.xpath("//h1[@class='text-2xl']");
-    private By fNameLocator = By.xpath("//input[@name='firstName']");
-    private By lNameLocator = By.xpath("//input[@name='lastName']");
-    private By birthdayLocator = By.xpath("//input[@name='dateOfBirth']");
-    private By emailLocator = By.xpath("//input[@name='email']");
-    private By passwordLocator = By.xpath("//input[@name='password']");
-    private By confirmPassLocator = By.xpath("//input[@name='passwordConfirmation']");
+    @FindBy(xpath = "//h1[@class='text-2xl']")
+    private WebElement headerLocator;
+    @FindBy(xpath = "//input[@name='firstName']")
+    private WebElement fNameLocator;
+    @FindBy(xpath = "//input[@name='lastName']")
+    private WebElement lNameLocator;
+    @FindBy(xpath = "//input[@name='dateOfBirth']")
+    private WebElement birthdayLocator;
+    @FindBy(xpath = "//input[@name='email']")
+    private WebElement emailLocator;
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement passwordLocator;
+    @FindBy(xpath = "//input[@name='passwordConfirmation']")
+    private WebElement confirmPassLocator;
 
 
     public PageRegistration(WebDriver driver) {
         this.driver = driver;
-    }
-
-    @Step("Get page header text")
-    public String signUpHeader() {
-        return driver.findElement(headerLocator).getText();
+        PageFactory.initElements(driver, this);
     }
 
     @Step("Enter first name: {fName}")
-    public void inputName(String fName) {
-        driver.findElement(fNameLocator).sendKeys(fName);
+    public PageRegistration inputName(String fName) {
+        fNameLocator.sendKeys(fName);
+        return this;
     }
 
     @Step("Enter last name: {lName}")
-    public void inputLastName(String lName) {
-        driver.findElement(lNameLocator).sendKeys(lName);
+    public PageRegistration inputLastName(String lName) {
+        lNameLocator.sendKeys(lName);
+        return this;
     }
 
     @Step("Enter birthdate: {birthdate}")
-    public void inputBirthday(String birthdate) {
-        driver.findElement(birthdayLocator).sendKeys(birthdate);
+    public PageRegistration inputBirthday(String birthdate) {
+        birthdayLocator.sendKeys(birthdate);
+        return this;
     }
 
     @Step("Enter email: {email}")
-    public void inputEmail(String email) {
-        driver.findElement(emailLocator).sendKeys(email);
+    public PageRegistration inputEmail(String email) {
+        emailLocator.sendKeys(email);
+        return this;
     }
 
     @Step("Enter password: {password}")
-    public void inputPassword(String password) {
-        driver.findElement(passwordLocator).sendKeys(password);
+    public PageRegistration inputPassword(String password) {
+        passwordLocator.sendKeys(password);
+        return this;
     }
 
     @Step("Repeat password: {confirmPassword}")
-    public String inputConfirmPassword(String confirmPassword) {
-        driver.findElement(confirmPassLocator).sendKeys(confirmPassword);
-        return driver.findElement(confirmPassLocator).getAttribute("value");
+    public PageRegistration inputConfirmPassword(String confirmPassword) {
+        confirmPassLocator.sendKeys(confirmPassword);
+        return this;
+    }
+
+    @Step("Get results: page header and password value")
+    public String getHeaderAndPasswordValue() {
+        String headerText = headerLocator.getText();
+        String passwordValue = confirmPassLocator.getAttribute("value");
+
+        return headerText + ":" + passwordValue;
     }
 }
