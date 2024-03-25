@@ -1,5 +1,6 @@
 Feature: Identical Error Messages
 
+  @testcase_#L021
   Scenario Outline: User Attempts to Login with Invalid Email
     Given The login page is accessed
     When I input invalid '<invalid email>' email and valid '<password>' password

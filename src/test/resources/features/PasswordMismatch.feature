@@ -3,6 +3,7 @@ Feature: Confirm Password must Match
   Background:
     Given the user is on the login page
 
+  @testcase_#L01
   Scenario Outline: Password Confirmation with Wrong Password
     Given I click on registration button
     When I am on registration page

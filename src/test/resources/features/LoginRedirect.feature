@@ -1,5 +1,6 @@
 Feature: Access to Authenticated Pages after Logout
 
+  @testcase_#L010
   Scenario Outline: Attempt to Access Login Page with Back Button After Logout
     Given I am on the login page
     When I enter '<email>' and '<password>' to Email and Password fields
