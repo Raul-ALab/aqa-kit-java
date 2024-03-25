@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 /*
- *
+ * Test case ID: L01
  * */
 public class RegPasswordMismatch {
     private WebDriver driver;
@@ -20,7 +20,7 @@ public class RegPasswordMismatch {
     @FindBy(xpath = "//button/following-sibling::a[contains(@href, '/registration')]")
     private WebElement registrBtnElement;
     @FindBy(xpath = "//h1[@class='text-2xl']")
-    private WebElement headerLocator;
+    private WebElement headerElement;
     @FindBy(xpath = "//input[@name='firstName']")
     private WebElement fNameElement;
     @FindBy(xpath = "//input[@name='lastName']")
@@ -51,8 +51,8 @@ public class RegPasswordMismatch {
 
     @Step("Check if on the the right page")
     public boolean isOnRegistrationPage() {
-        wait.until(ExpectedConditions.visibilityOf(headerLocator)).isDisplayed();
-        return headerLocator.getText().contains("Registration");
+        wait.until(ExpectedConditions.visibilityOf(headerElement)).isDisplayed();
+        return headerElement.getText().contains("Registration");
     }
 
     @Step("Enter first name: {fName}")

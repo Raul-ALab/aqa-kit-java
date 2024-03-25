@@ -1,9 +1,9 @@
-Feature: A user cannot complete registration with password mismatch error
+Feature: Confirm Password must Match
 
   Background:
     Given the user is on the login page
 
-  Scenario Outline: Password confirmation with wrong password
+  Scenario Outline: Password Confirmation with Wrong Password
     Given I click on registration button
     When I am on registration page
     And I enter '<fName>' to FirstName field
@@ -18,4 +18,3 @@ Feature: A user cannot complete registration with password mismatch error
     Examples:
       | fName | lName | birthdate  | email                | password     | wrongPassword |
       | Megan | Boone | 03/23/2000 | mboone35@example.com | mb-mb.123456 | 123456.mb-mb  |
-
