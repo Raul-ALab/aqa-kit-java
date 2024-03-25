@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.WebDriver;
-import org.raul.lesson_2.utils.DriverSetUp;
+import org.raul.lesson_2.utils.ObsoleteDriverSetUp;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class WindowHandler {
     различных страниц в новых окнах...*/
     public void openUrls(int implicitWaitSec) {
         for (int i = 0; i < getUrlArr().length; i++) {
-            WebDriver driver = DriverSetUp.setUpDriver();
+            WebDriver driver = ObsoleteDriverSetUp.setUpDriver();
             driverList.add(driver);
             driver.manage()
                     .timeouts()

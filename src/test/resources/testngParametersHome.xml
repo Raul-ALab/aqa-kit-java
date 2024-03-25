@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="LoginParameters Suite">
     <test name="LoginSuccess1">
-        <parameter name="email" value="mboone@example.com"/>
-        <parameter name="password" value="boone123"/>
+        <parameter name="email" value="mboone14@example.com"/>
+        <parameter name="password" value="mbmb.123456"/>
         <classes>
             <class name="org.raul.lesson_3.loginsuccess.LoginParameters"/>
         </classes>
     </test>
 
     <test name="LoginSuccess2">
-        <parameter name="email" value="spader@example.com"/>
-        <parameter name="password" value="js123456"/>
+        <parameter name="email" value="mboone16@example.com"/>
+        <parameter name="password" value="mbmb.123456"/>
         <classes>
             <class name="org.raul.lesson_3.loginsuccess.LoginParameters"/>
         </classes>
     </test>
 
     <test name="LoginSuccess3">
-        <parameter name="email" value="laura@example.com"/>
-        <parameter name="password" value="ls123456"/>
+        <parameter name="email" value="mboone15@example.com"/>
+        <parameter name="password" value="mbmb.123456"/>
         <classes>
             <class name="org.raul.lesson_3.loginsuccess.LoginParameters"/>
         </classes>
