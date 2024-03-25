@@ -83,6 +83,6 @@ public class RegPasswordMismatchSteps {
     @And("I retrieve error message to validate")
     public void i_retrieve_error_message_to_validate() {
         String expectedError = "Passwords must match";
-        Assert.assertEquals(passMismatch.retrieveErrorMessageText(), expectedError);
+        Assert.assertEquals(passMismatch.getErrorMessageText(), expectedError);
     }
 }

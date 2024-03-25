@@ -50,7 +50,7 @@ public class ErrorMessageObscuritySteps {
 
     @Then("I should get an invalid credentials error for invalid email")
     public void i_should_get_an_invalid_credentials_error_for_invalid_email() {
-        invalidEmailError = errorMessage.errorMessageForInvalidCredentials();
+        invalidEmailError = errorMessage.getErrorMessageForInvalidCredentials();
     }
 
     @And("I switch to a new tab to reopen login page")
@@ -69,7 +69,7 @@ public class ErrorMessageObscuritySteps {
 
     @Then("I should get an invalid credentials error for invalid password")
     public void i_should_get_an_invalid_credentials_error_for_invalid_password() {
-        invalidPasswordError = errorMessage.errorMessageForInvalidCredentials();
+        invalidPasswordError = errorMessage.getErrorMessageForInvalidCredentials();
     }
 
     @And("Error messages similarity from both cases is verified")

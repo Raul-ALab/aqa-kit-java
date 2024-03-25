@@ -30,7 +30,7 @@ public class LoginRedirectAfterLogout implements AqaPageLocators {
     }
 
     public LoginRedirectAfterLogout clickSignInBtn() {
-        driver.findElement(SIGN_IN_LOCATOR).click();
+        wait.until(ExpectedConditions.elementToBeClickable(SIGN_IN_LOCATOR)).click();
         return this;
     }
 
@@ -40,7 +40,7 @@ public class LoginRedirectAfterLogout implements AqaPageLocators {
     }
 
     public LoginRedirectAfterLogout clickLogout() {
-        driver.findElement(LOGOUT_LOCATOR).click();
+        wait.until(ExpectedConditions.elementToBeClickable(LOGOUT_LOCATOR)).click();
         return this;
     }
 

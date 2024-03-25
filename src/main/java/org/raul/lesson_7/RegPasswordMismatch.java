@@ -76,12 +76,12 @@ public class RegPasswordMismatch implements AqaPageLocators {
     @Step("Check message visibility")
     public boolean isErrorMessageVisible() {
         WebElement mismatchError = driver.findElement(MISMATCH_ERROR_LOCATOR);
-        wait.until(ExpectedConditions.visibilityOf(mismatchError)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(mismatchError));
         return mismatchError.getText().contains("must match");
     }
 
     @Step("Retrieve error message text")
-    public String retrieveErrorMessageText() {
+    public String getErrorMessageText() {
         WebElement mismatchError = driver.findElement(MISMATCH_ERROR_LOCATOR);
         return mismatchError.getText();
     }

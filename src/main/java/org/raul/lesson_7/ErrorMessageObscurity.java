@@ -41,7 +41,7 @@ public class ErrorMessageObscurity implements AqaPageLocators {
     }
 
     public ErrorMessageObscurity clickSignInBtn() {
-        driver.findElement(SIGN_IN_LOCATOR).click();
+        wait.until(ExpectedConditions.elementToBeClickable(SIGN_IN_LOCATOR)).click();
         return this;
     }
 
@@ -55,7 +55,7 @@ public class ErrorMessageObscurity implements AqaPageLocators {
         return this;
     }
 
-    public String errorMessageForInvalidCredentials() {
+    public String getErrorMessageForInvalidCredentials() {
         try {
             WebElement errorMessageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(ERROR_LOCATOR));
             return errorMessageElement.getText();
