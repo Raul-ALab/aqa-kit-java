@@ -7,6 +7,9 @@ import org.raul.utils.AqaPageLocators;
 
 import java.time.Duration;
 
+/*
+ * Test case ID: L010
+ * */
 public class LoginRedirectAfterLogout implements AqaPageLocators {
     private WebDriver driver;
     private WebDriverWait wait;
