@@ -16,6 +16,7 @@ public class DriverSetUp2 {
         return driver;
     }
 
+    @Step("Quite driver if not null")
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();

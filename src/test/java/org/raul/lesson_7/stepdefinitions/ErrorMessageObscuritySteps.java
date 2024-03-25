@@ -28,9 +28,7 @@ public class ErrorMessageObscuritySteps {
 
     @After
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverSetUp2.quitDriver();
     }
 
     @Given("The login page is accessed")

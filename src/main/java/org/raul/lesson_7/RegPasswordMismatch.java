@@ -32,7 +32,7 @@ public class RegPasswordMismatch implements AqaPageLocators {
     @Step("Check if on the the right page")
     public boolean isOnRegistrationPage() {
         WebElement header = driver.findElement(HEADER_LOCATOR);
-        wait.until(ExpectedConditions.visibilityOf(header)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(header));
         return header.getText().contains("Registration");
     }
 

@@ -25,9 +25,7 @@ public class RegPasswordMismatchSteps {
 
     @After
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverSetUp2.quitDriver();
     }
 
     @Given("the user is on the login page")

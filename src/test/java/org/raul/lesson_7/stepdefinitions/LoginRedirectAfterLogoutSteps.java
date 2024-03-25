@@ -25,9 +25,7 @@ public class LoginRedirectAfterLogoutSteps {
 
     @After
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverSetUp2.quitDriver();
     }
 
     @Given("I am on the login page")
