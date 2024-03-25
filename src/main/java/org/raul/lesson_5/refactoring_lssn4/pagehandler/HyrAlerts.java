@@ -1,5 +1,6 @@
 package org.raul.lesson_5.refactoring_lssn4.pagehandler;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,7 +13,8 @@ import org.raul.utils.SwitchTab;
 import java.time.Duration;
 
 /*
- * Refactoring:
+ * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ *
  * Переключиться на окно, в котором открыта следующая ссылка:
  *  https://www.hyrtutorials.com/p/alertsdemo.html
  * Нажать поочередно на кнопки.
@@ -35,6 +37,7 @@ public class HyrAlerts {
 
     /* После нажатия на первую кнопку нажать “Ok” на модальном окне и
     вывести в консоль сообщение в модуле “Popup box output”.*/
+    @Step("Click the Alert Button, interact with the pop-up window, and retrieve status message")
     public String clickAlertBtn() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyLocator));
         wait.until(ExpectedConditions.elementToBeClickable(alertBtnLocator)).click();
@@ -47,6 +50,7 @@ public class HyrAlerts {
 
     /* После нажатия на вторую кнопку нажать “Cancel” на модальном окне и
     вывести в консоль сообщение в модуле “Popup box output”.*/
+    @Step("Click the Confirm Button, interact with the pop-up window, and retrieve status message")
     public String clickConfirmBtn() {
         driver.switchTo().defaultContent();
         wait.until(ExpectedConditions.elementToBeClickable(confirmBtnLocator)).click();
@@ -58,6 +62,7 @@ public class HyrAlerts {
 
     /* После нажатия на третью кнопку, ввести текст “Final step of this task” в
     модальном окне и нажать “Ok”. Вывести в консоль сообщение в модуле “Popup box output”*/
+    @Step("Click the Prompt Button, enter text to the pop-up window, and retrieve status message")
     public String clickPromptBtn(String text) {
         driver.switchTo().defaultContent();
         escapeAndScrollToBypassBottomFlyer();
@@ -69,10 +74,12 @@ public class HyrAlerts {
         return retrieveActionStatusNotes();
     }
 
+    @Step("Retrieve status messages")
     private String retrieveActionStatusNotes() {
         return wait.until(ExpectedConditions.presenceOfElementLocated(outputLocator)).getText();
     }
 
+    @Step("Scroll down to bypass the flyer")
     private void escapeAndScrollToBypassBottomFlyer() {
         Actions actions = new Actions(driver);
         actions
@@ -81,6 +88,7 @@ public class HyrAlerts {
                 .build().perform();
     }
 
+    @Step("Switch to HYR Alerts page")
     public void switchToAlertsPage() {
         SwitchTab.switchBetweenTabs(driver, "AlertsDemo");
     }

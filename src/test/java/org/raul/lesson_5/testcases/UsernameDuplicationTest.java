@@ -1,14 +1,26 @@
 package org.raul.lesson_5.testcases;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
+import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /*
+ * 1.	Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 2.	Добавьте браузерные логи, если это потребуется.
+ *
  * Testcase ID: L03
  * 2. Доделать по три автотеста из каждого модуля, на которые писали тест-кейсы в лекции 9.
  * */
+@Listeners({AllureTestListener.class})
+@Epic("Test Cases from lesson 9")
+@Feature("Registration Page Testing")
 public class UsernameDuplicationTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/registration";
 
@@ -30,6 +42,10 @@ public class UsernameDuplicationTest {
     }
 
     @Test(dataProvider = "registration")
+    @Description("Test Case L03 : Check registration page input fields.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Enter data to input fields")
+    @Link(name = "Test Cases file testcases(rev.1)", url = "src/test/resources/testcases(rev.1).xlsx")
     public void verifyRegistrationPageInputFields(String fName, String lName, String birthdate,
                                                   String email, String password, String confirmPassword) {
         duplication.inputName(fName);

@@ -1,5 +1,6 @@
 package org.raul.lesson_5.refactoring_lssn4.pagehandler;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,8 @@ import org.raul.utils.SwitchTab;
 import java.time.Duration;
 
 /*
- * Refactoring:
+ * 1. Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ *
  * Переключиться на окно, в котором открыта следующая ссылка:
  *   https://www.guinnessworldrecords.com/account/register?
  * В данном окне заполнить все поля соответствующей информацией. В полях
@@ -43,35 +45,43 @@ public class GuinnessFormFiller {
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
     }
 
+    @Step("Enter first name: {name}")
     public void inputName(String name) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(bodyLocator));
         driver.findElement(fnameLocator).sendKeys(name);
     }
 
+    @Step("Enter last name: {lastName}")
     public void inputLastName(String lastName) {
         driver.findElement(lnameLocator).sendKeys(lastName);
     }
 
+    @Step("Enter email: {email}")
     public void inputEmail(String email) {
         driver.findElement(emailLocator).sendKeys(email);
     }
 
+    @Step("Confirm email: {repeatEmail}")
     public void inputConfirmEmail(String repeatEmail) {
         driver.findElement(confirmEmailLocator).sendKeys(repeatEmail);
     }
 
+    @Step("Enter the day of birthdate: {day}")
     public void inputDayOfBirthday(int day) {
         driver.findElement(dayLocator).sendKeys(String.valueOf(day));
     }
 
+    @Step("Enter the month of birthdate: {month}")
     public void inputMonthOfBirthday(int month) {
         driver.findElement(monthLocator).sendKeys(String.valueOf(month));
     }
 
+    @Step("Enter the year of birthdate: {year}")
     public void inputYearOfBirthday(int year) {
         driver.findElement(yearLocator).sendKeys(String.valueOf(year));
     }
 
+    @Step("Enter country: {countryName}")
     public void inputRegion(String countryName) {
         Select countryDropdown = new Select(driver.findElement(countryLocator));
         countryDropdown.selectByVisibleText(countryName);
@@ -79,20 +89,24 @@ public class GuinnessFormFiller {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(countryLocator, countryName));
     }
 
+    @Step("Enter state: {state}")
     public void inputState(String state) {
         driver.findElement(stateLocator).sendKeys(state);
     }
 
+    @Step("Enter password: {password}")
     public String inputPassword(String password) {
         driver.findElement(passwordLocator).sendKeys(password);
         return driver.findElement(passwordLocator).getAttribute("value");
     }
 
+    @Step("Enter wrong value to confirm password: {repeatPassword}")
     public String inputConfirmPassword(String repeatPassword) {
         driver.findElement(confirmPasswordLocator).sendKeys(repeatPassword);
         return driver.findElement(confirmPasswordLocator).getAttribute("value");
     }
 
+    @Step("Retrieve password mismatch error")
     public String retrieveErrorMessage() {
         driver.findElement(clickAroundLocator).click();
 
@@ -102,6 +116,7 @@ public class GuinnessFormFiller {
         return driver.findElement(errorLocator).getText();
     }
 
+    @Step("Switch to Guinness page")
     public void switchToGuinnessPage() {
         SwitchTab.switchBetweenTabs(driver, "Guinness");
     }

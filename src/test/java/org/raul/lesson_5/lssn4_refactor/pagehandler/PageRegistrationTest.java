@@ -1,20 +1,29 @@
 package org.raul.lesson_5.lssn4_refactor.pagehandler;
 
-
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_5.refactoring_lssn4.pagehandler.PageRegistration;
+import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 /*
- * Refactor:
+ * 1.	Добавьте аллюр-репортинг к нашим тестам: своему проекту.
+ * 2.	Добавьте браузерные логи, если это потребуется.
+ *
  * 3. Необходимо автоматизировать сценарий, который показан
  * на видео “Сценарий для автоматизации Лекция 12ч2.mp4.
  * */
+
+@Listeners({AllureTestListener.class})
+@Epic("QA course : andersenlab.com")
+@Feature("Registration Page Entry Testing")
 public class PageRegistrationTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/registration";
 
@@ -37,6 +46,9 @@ public class PageRegistrationTest {
     }
 
     @Test(dataProvider = "data")
+    @Description("Validate registration page field entries.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("User can fill out data entry fields")
     public void verifyRegistrationPageInputFields(String fName, String lName, String mmddyyyyBirthdate,
                                                   String email, String password, String confirmPassword) {
         String verifySignUpPage = pageRegistration.signUpHeader();
