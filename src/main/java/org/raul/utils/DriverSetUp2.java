@@ -16,6 +16,14 @@ public class DriverSetUp2 {
         return driver;
     }
 
+    @Step("Quite driver if not null")
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
+
     /* Initialisation if it hasn't already been initialised
      to assure the single instance of the driver. */
     private static WebDriver getInstance() {

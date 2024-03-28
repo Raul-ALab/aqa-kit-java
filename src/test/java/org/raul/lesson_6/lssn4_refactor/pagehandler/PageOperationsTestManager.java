@@ -7,6 +7,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.pagehandler.PageOperations;
 import org.raul.listener.AllureTestListener;
@@ -31,6 +32,7 @@ import org.testng.annotations.Test;
         @Epic("HYR Alerts")
 })
 @Feature("Page Interactions Tests Runner")
+@Owner("Rashad Raul")
 public class PageOperationsTestManager {
     private static final String BASE_URL = "https://www.google.com/search";
     private static final String URL_1 = "https://www.guinnessworldrecords.com/account/register?";
@@ -66,7 +68,6 @@ public class PageOperationsTestManager {
     }
 
     @Test(dependsOnMethods = "verifySuccessfulOpeningOfUrls")
-    @Feature("Verify Registration Note")
     @Description("Execute and manage tests from W3FormFillerTest.")
     public void executeW3SchoolsTest() {
         W3FormFillerTest w3Test = new W3FormFillerTest();
@@ -75,7 +76,6 @@ public class PageOperationsTestManager {
     }
 
     @Test(dependsOnMethods = "executeW3SchoolsTest", alwaysRun = true)
-    @Feature("Verify Password Error")
     @Description("Execute and manage tests from GuinnessFormFillerTest.")
     public void executeGuinnessTest() {
         GuinnessFormFillerTest guinnessTest = new GuinnessFormFillerTest();
@@ -84,7 +84,6 @@ public class PageOperationsTestManager {
     }
 
     @Test(dependsOnMethods = "executeGuinnessTest", alwaysRun = true)
-    @Feature("Alert Buttons Interaction Test")
     @Description("Execute and manage tests from HyrAlertsTest.")
     public void executeHyrAlertsTest() {
         HyrAlertsTest hyrTest = new HyrAlertsTest();

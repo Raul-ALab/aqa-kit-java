@@ -7,6 +7,7 @@ import io.qameta.allure.Link;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
 import org.raul.listener.AllureTestListener;
 import org.raul.utils.DriverSetUp2;
@@ -26,6 +27,7 @@ import org.testng.annotations.Test;
 @Listeners({AllureTestListener.class})
 @Epic("Test Cases from lesson 9")
 @Feature("Edit Page Testing")
+@Owner("Rashad Raul")
 public class EditAccountPasswordTest {
     private final static String URL = "https://qa-course-01.andersenlab.com/login";
 

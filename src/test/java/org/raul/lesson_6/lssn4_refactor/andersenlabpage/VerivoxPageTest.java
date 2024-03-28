@@ -7,6 +7,7 @@ import io.qameta.allure.Link;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
 import org.raul.lesson_6.refactoring_lssn4.andersenlabpage.VerivoxPage;
 import org.raul.listener.AllureTestListener;
@@ -30,6 +31,7 @@ import org.testng.annotations.Test;
 @Listeners({AllureTestListener.class})
 @Epic("AndersenLab Website Testing")
 @Feature("Verivox project page")
+@Owner("Rashad Raul")
 public class VerivoxPageTest {
     private static final String URL = "https://andersenlab.com/";
 

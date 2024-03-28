@@ -4,25 +4,28 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.raul.utils.DriverSetUp2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class AllureTestListener implements ITestListener {
+    private static final Logger logger = LoggerFactory.getLogger(AllureTestListener.class);
 
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("Started test method: " + getMethodName(result));
+        logger.info("Started test method: {}", getMethodName(result));
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("Successful test method: " + getMethodName(result));
+        logger.info("Successful test method: {}", getMethodName(result));
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        System.out.println("Skipped test method: " + getMethodName(result));
+        logger.info("Skipped test method: {}", getMethodName(result));
     }
 
     private static String getMethodName(ITestResult result) {
@@ -37,16 +40,16 @@ public class AllureTestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         saveScreenShot(((TakesScreenshot) DriverSetUp2.startDriver()).getScreenshotAs(OutputType.BYTES));
-        System.out.println("Test failed [screenshot is taken] for method: " + getMethodName(result));
+        logger.error("Test failed [screenshot is taken] for method: {}", getMethodName(result));
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        System.out.println("Test failed with success percentage: " + getMethodName(result));
+        logger.warn("Test failed with success percentage: {}", getMethodName(result));
     }
 
     @Override
     public void onFinish(ITestContext iContext) {
-        System.out.println("Completed test(s) in the " + iContext.getName().toUpperCase() + " project!");
+        logger.info("Completed test(s) in the {} project!", iContext.getName().toUpperCase());
     }
 }
