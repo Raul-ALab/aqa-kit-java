@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+    <test name="BlankFieldsLoginTest">
+        <classes>
+            <class name="org.raul.lesson_6.testcases.BlankFieldsLoginTest" />
+        </classes>
+    </test>
+</suite>
