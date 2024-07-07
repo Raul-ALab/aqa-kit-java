@@ -161,6 +161,10 @@
     </dependency>
   </dependencies>
 
+  <profiles>
+    <profile>
+      <id>Parallel</id>
+      
   <build>
     <plugins>
       <plugin>
@@ -178,7 +182,7 @@
         <version>${maven.surefire.version}</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+            <suiteXmlFile>src/test/resources/testngGroupingHome.xml</suiteXmlFile>
           </suiteXmlFiles>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -207,4 +211,6 @@
       </plugin>
     </plugins>
   </build>
+          </profile>
+  </profiles>
 </project>
